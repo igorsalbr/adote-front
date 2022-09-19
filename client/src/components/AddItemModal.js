@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme) =>
         marginTop: theme.spacing(1),
       },
     },
+    formTitle: {
+      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    }
   })
 );
 
@@ -38,20 +41,20 @@ export default function AddItemModal({ onClose }) {
   return (
     <Dialog maxWidth="md" fullWidth open onClose={onClose}>
       <form onSubmit={submitNewItem}>
-        <DialogTitle>Add new item</DialogTitle>
+        <DialogTitle className={classes.formTitle}>Venha ser monitor</DialogTitle>
         <DialogContent className={classes.formBody}>
           <TextField
             value={title}
             type="text"
             fullWidth
             variant="outlined"
-            label="Item title"
+            label="Número"
             onChange={(e)=>setTitle(e.target.value)}
             required
           />
           <TextField
             value={description}
-            label="Item description"
+            label="Qual sua experiëncia com exatas?"
             type="text"
             multiline
             minRows={2}
@@ -61,9 +64,9 @@ export default function AddItemModal({ onClose }) {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={onClose}>Cancel</Button>
+          <Button onClick={onClose}>Cancelar</Button>
           <Button color="primary" variant="contained" type="submit">
-            Submit
+            Embarcar
           </Button>
         </DialogActions>
       </form>

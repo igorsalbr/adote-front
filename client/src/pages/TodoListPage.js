@@ -39,7 +39,7 @@ export default function TodoListPage() {
   return (
     <div className={classes.root}>
       {todosList.length === 0 && (
-        <Typography variant="h6">Add an item to get started</Typography>
+        <Typography variant="h6">Venha fazer parte!</Typography>
       )}
       <AppTodoList todosList={todosList} />
       <Fab color="primary" onClick={() => setAddItemModal(true)}>
