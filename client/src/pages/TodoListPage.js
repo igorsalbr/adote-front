@@ -1,5 +1,4 @@
 import { createStyles, Fab, makeStyles, Typography } from "@material-ui/core";
-import { Add } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AddItemModal from "../components/AddItemModal";
@@ -18,7 +17,15 @@ const useStyles = makeStyles((theme) =>
       alignContent: "center",
     },
     list: {
-      width: "100%",
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+
+    },
+    button: {
+      width: "100px",
+      margin: "50px",
+
     },
   })
 );
@@ -39,12 +46,15 @@ export default function TodoListPage() {
   return (
     <div className={classes.root}>
       {todosList.length === 0 && (
-        <Typography variant="h6">Venha fazer parte!</Typography>
+        <Typography variant="h6">Venha fazer a diferença no sistema educacional brasileiro!</Typography>
       )}
       <AppTodoList todosList={todosList} />
-      <Fab color="primary" onClick={() => setAddItemModal(true)}>
-        <Add />
+      <div className={classes.list} >
+        <Fab color="default" variant="extended" size="medium" children="Preciso de ajuda!" className={classes.button}  onClick={() => console.log('a fazer')}/>
+        <Fab color="primary" variant="extended" size="medium" className={classes.button} onClick={() => setAddItemModal(true)}>
+        Quero ser monitor!
       </Fab>
+      </div>
       {addItemModal && <AddItemModal onClose={() => setAddItemModal(false)} />}
     </div>
   );

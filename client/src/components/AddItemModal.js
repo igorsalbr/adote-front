@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) =>
 export default function AddItemModal({ onClose }) {
   let classes = useStyles();
   let dispatch = useDispatch();
+  let [name, setName]= useState('')
   let [title, setTitle]= useState('')
   let [description, setDescription]= useState('')
 
@@ -43,6 +44,15 @@ export default function AddItemModal({ onClose }) {
       <form onSubmit={submitNewItem}>
         <DialogTitle className={classes.formTitle}>Venha ser monitor</DialogTitle>
         <DialogContent className={classes.formBody}>
+        <TextField
+            value={name}
+            type="text"
+            fullWidth
+            variant="outlined"
+            label="Nome"
+            onChange={(e)=>setName(e.target.value)}
+            required
+          />
           <TextField
             value={title}
             type="text"
@@ -54,7 +64,7 @@ export default function AddItemModal({ onClose }) {
           />
           <TextField
             value={description}
-            label="Qual sua experiëncia com exatas?"
+            label="Qual sua experiência com exatas?"
             type="text"
             multiline
             minRows={2}
