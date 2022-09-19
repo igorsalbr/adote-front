@@ -31,12 +31,12 @@ export default function AddItemModal({ onClose }) {
   let classes = useStyles();
   let dispatch = useDispatch();
   let [name, setName]= useState('')
-  let [title, setTitle]= useState('')
-  let [description, setDescription]= useState('')
+  let [numero, setNumero]= useState('')
+  let [exp, setExp]= useState('')
 
   function submitNewItem(e) {
     e.preventDefault();
-    dispatch(postTodo(title, description))
+    dispatch(postTodo(name, numero, exp))
     onClose();
   }
   return (
@@ -54,23 +54,23 @@ export default function AddItemModal({ onClose }) {
             required
           />
           <TextField
-            value={title}
+            value={numero}
             type="text"
             fullWidth
             variant="outlined"
             label="Número"
-            onChange={(e)=>setTitle(e.target.value)}
+            onChange={(e)=>setNumero(e.target.value)}
             required
           />
           <TextField
-            value={description}
+            value={exp}
             label="Qual sua experiência com exatas?"
             type="text"
             multiline
             minRows={2}
             fullWidth
             variant="outlined"
-            onChange={(e)=>setDescription(e.target.value)}
+            onChange={(e)=>setExp(e.target.value)}
           />
         </DialogContent>
         <DialogActions>
