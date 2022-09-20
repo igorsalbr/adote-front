@@ -54,6 +54,8 @@ export default function Aluno() {
         <Typography variant="subtitle1">&nbsp;&nbsp;Você pode enviar as suas dúvidas a hora que quiser no grupo e, assim que um
         monitor estiver disponível ele irá te atender! 
         </Typography>
+        <div></div>
+        <></>
       <div className={classes.list} >
   
       </div>
