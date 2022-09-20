@@ -1,8 +1,7 @@
 import { createStyles, Fab, makeStyles, Typography } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import AddItemModal from "../components/AddItemModal";
+import AddMonitorModal from "../components/AddMonitorModal";
 import AppTodoList from "../components/AppTodoList";
 import { getTodos } from "../store/actions";
 
@@ -41,7 +40,7 @@ export default function Monitor() {
   }, [dispatch]);
 
   // Hold state for if new item modal is open
-  let [addItemModal, setAddItemModal] = useState(false);
+  let [addMonitorModal, setAddMonitorModal] = useState(false);
 
   return (
     <div className={classes.root}>
@@ -52,13 +51,13 @@ export default function Monitor() {
       <div className={classes.list} >
         
        
-        <Fab color="primary" variant="extended" size="medium" className={classes.button}>
-           <Link className={classes.link2} to='/quero-ser-monitor'>Quero ser monitor!</Link>
+      <Fab color="primary" variant="extended" size="medium" onClick={() => setAddMonitorModal(true)} className={classes.button}>
+        Quero ser monitor!
         </Fab>
         
       </div>
 
-      {addItemModal && <AddItemModal onClose={() => setAddItemModal(false)} />}
+      {addMonitorModal && <AddMonitorModal onClose={() => setAddMonitorModal(false)} />}
     </div>
   );
 }

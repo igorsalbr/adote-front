@@ -22,12 +22,12 @@ const useStyles = makeStyles((theme) =>
       },
     },
     formTitle: {
-      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      background: 'linear-gradient(135deg,  #efd301 30%, #00008b  80%)',
     }
   })
 );
 
-export default function AddItemModal({ onClose }) {
+export default function AddMonitorModal({ onClose }) {
   let classes = useStyles();
   let dispatch = useDispatch();
   let [name, setName]= useState('')

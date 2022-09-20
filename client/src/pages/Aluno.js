@@ -2,7 +2,7 @@ import { createStyles, Fab, makeStyles, Typography } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import AddItemModal from "../components/AddItemModal";
+import AddAlunoModal from "../components/AddAlunoModal";
 import AppTodoList from "../components/AppTodoList";
 import { getTodos } from "../store/actions";
 
@@ -30,6 +30,8 @@ const useStyles = makeStyles((theme) =>
     button: {
       width: "100px",
       margin: "50px",
+      backgroundColor:" #efd301 ",
+      color:'black'
 
 
     },
@@ -47,7 +49,7 @@ export default function Aluno() {
   }, [dispatch]);
 
   // Hold state for if new item modal is open
-  let [addItemModal, setAddItemModal] = useState(false);
+  let [addAlunoModal, setAddAlunoModal] = useState(false);
 
   return (
     <div className={classes.root}>
@@ -58,8 +60,12 @@ export default function Aluno() {
       <div className={classes.list} >
   
       </div>
-
-      {addItemModal && <AddItemModal onClose={() => setAddItemModal(false)} />}
+      <Fab color="primary" variant="extended" size="medium" onClick={() => setAddAlunoModal(true)} className={classes.button}>
+        Quero ser aluno!
+        </Fab>
+        
+     
+      {addAlunoModal && <AddAlunoModal onClose={() => setAddAlunoModal(false)} />}
     </div>
   );
 }
