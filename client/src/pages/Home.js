@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AddMonitorModal from "../components/AddMonitorModal";
 import AddAlunoModal from '../components/AddAlunoModal'
-import AppTodoList from "../components/AppTodoList";
 import { getTodos } from "../store/actions";
 
 const useStyles = makeStyles((theme) =>
@@ -12,6 +11,7 @@ const useStyles = makeStyles((theme) =>
       maxWidth: 900,
       marginLeft: "auto",
       marginRight: "auto",
+      marginTop: '15px',
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -38,7 +38,6 @@ const useStyles = makeStyles((theme) =>
 export default function Home() {
   let classes = useStyles();
   let dispatch = useDispatch();
-  let todosList = useSelector((state) => Object.values(state.todos.todos));
   let [addMonitorModal, setAddMonitorModal] = useState(false);
   let [addAlunoModal, setAddAlunoModal] = useState(false);
 
@@ -51,10 +50,8 @@ export default function Home() {
 
   return (
     <div className={classes.root}>
-      {todosList.length === 0 && (
-        <Typography variant="h6">Venha fazer a diferença no sistema educacional brasileiro!</Typography>
-      )}
-      <AppTodoList todosList={todosList} />
+        <Typography variant="subtitle1">Somos um projeto educacional sem fins lucrativos criado por alunos da USP com o objetivo de suprir a falta de suporte que alguns alunos enfrentaram durante a pandemia</Typography>
+
       <div className={classes.list} >
         
         <Fab color="default" variant="extended" size="medium" onClick={() => setAddAlunoModal(true)}   className={classes.button}>

@@ -8,7 +8,7 @@ import {
     makeStyles,
     TextField,
   } from "@material-ui/core";
-  import { postTodo } from "../store/actions";
+  import { postAluno } from "../store/actions";
   
   
   import { useState } from "react";
@@ -22,7 +22,7 @@ import {
         },
       },
       formTitle: {
-        background: 'linear-gradient(45deg, #00008b 30%,  #efd301 90%)',
+        background: 'linear-gradient(45deg, #00008b 15%,  #efd301 50%)',
         color: 'white'
       }
     })
@@ -37,13 +37,13 @@ import {
   
     function submitNewItem(e) {
       e.preventDefault();
-      dispatch(postTodo(name, numero, exp))
+      dispatch(postAluno(name, numero, exp))
       onClose();
     }
     return (
       <Dialog maxWidth="md" fullWidth open onClose={onClose}>
         <form onSubmit={submitNewItem}>
-          <DialogTitle className={classes.formTitle}>Venha ser Aluno</DialogTitle>
+          <DialogTitle className={classes.formTitle}>Venha ser nosso Aluno &nbsp;	&#10084;</DialogTitle>
           <DialogContent className={classes.formBody}>
           <TextField
               value={name}

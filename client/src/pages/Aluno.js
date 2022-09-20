@@ -1,10 +1,7 @@
 import { createStyles, Fab, makeStyles, Typography } from "@material-ui/core";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import AddAlunoModal from "../components/AddAlunoModal";
-import AppTodoList from "../components/AppTodoList";
-import { getTodos } from "../store/actions";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -12,6 +9,7 @@ const useStyles = makeStyles((theme) =>
       maxWidth: 900,
       marginLeft: "auto",
       marginRight: "auto",
+      marginTop:"20px",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -40,23 +38,22 @@ const useStyles = makeStyles((theme) =>
 
 export default function Aluno() {
   let classes = useStyles();
-  let dispatch = useDispatch();
-  let todosList = useSelector((state) => Object.values(state.todos.todos));
 
-  // Fetch tasks
-  useEffect(() => {
-    dispatch(getTodos());
-  }, [dispatch]);
 
   // Hold state for if new item modal is open
   let [addAlunoModal, setAddAlunoModal] = useState(false);
 
   return (
     <div className={classes.root}>
-      {todosList.length === 0 && (
-        <Typography variant="h6">Como funcionamos aluno + form</Typography>
-      )}
-      <AppTodoList todosList={todosList} />
+        <Typography variant="subtitle1">&nbsp;&nbsp;Ao se tornar aluno adote, você entrará em um grupo no whatsapp com 
+        diversos alunos e alguns monitores. Nós funcionamos como um grupo de dúvidas, não damos aula ou cobramos
+        presença e não temos provas. No grupo você pode tirar todo tipo de dúvida que quiser, desde vivência na 
+        universidade até métodos de estudo, <b>mas focamos em tirar suas dúvidas de exatas para os vestibulares.</b>
+        </Typography>
+        <hr></hr>
+        <Typography variant="subtitle1">&nbsp;&nbsp;Você pode enviar as suas dúvidas a hora que quiser no grupo e, assim que um
+        monitor estiver disponível ele irá te atender! 
+        </Typography>
       <div className={classes.list} >
   
       </div>

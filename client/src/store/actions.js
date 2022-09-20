@@ -6,28 +6,47 @@ export const GET_TODOS_REQUEST = "GET_TODOS_REQUEST";
 export const GET_TODOS_SUCCESS = "GET_TODOS_SUCCESS";
 export const GET_TODOS_FAILURE = "GET_TODOS_FAILURE";
 
-export const POST_TODOS_REQUEST = "POST_TODOS_REQUEST";
-export const POST_TODOS_SUCCESS = "POST_TODOS_SUCCESS";
-export const POST_TODOS_FAILURE = "POST_TODOS_FAILURE";
+export const POST_MONITOR_REQUEST = "POST_MONITOR_REQUEST";
+export const POST_MONITOR_SUCCESS = "POST_MONITOR_SUCCESS";
+export const POST_MONITOR_FAILURE = "POST_MONITOR_FAILURE";
+
+export const POST_ALUNO_REQUEST = "POST_ALUNO_REQUEST";
+export const POST_ALUNO_SUCCESS = "POST_ALUNO_SUCCESS";
+export const POST_ALUNO_FAILURE = "POST_ALUNO_FAILURE";
 
 export const PATCH_TODOS_REQUEST = "PATCH_TODOS_REQUEST";
 export const PATCH_TODOS_SUCCESS = "PATCH_TODOS_SUCCESS";
 export const PATCH_TODOS_FAILURE = "PATCH_TODOS_FAILURE";
+
+export function postMonitor(name, numero , exp) {
+  return createAction({
+    endpoint: `${BASE_URL}/monitores`,
+    headers: {"content-type": "application/json"},
+    method: "POST",
+    types: [POST_MONITOR_REQUEST, POST_MONITOR_SUCCESS, POST_MONITOR_FAILURE],
+    body: JSON.stringify({name: name, numero: numero , exp: exp})
+  });
+}
+export function postAluno(name, numero , exp) {
+  return createAction({
+    endpoint: `${BASE_URL}/alunos`,
+    headers: {"content-type": "application/json"},
+    method: "POST",
+    types: [POST_ALUNO_REQUEST, POST_ALUNO_SUCCESS, POST_ALUNO_FAILURE],
+    body: JSON.stringify({name: name, numero: numero , exp: exp})
+  });
+}
+
+
+
+
+
+
 export function getTodos() {
   return createAction({
     endpoint: `${BASE_URL}/todos`,
     method: "GET",
     types: [GET_TODOS_REQUEST, GET_TODOS_SUCCESS, GET_TODOS_FAILURE],
-  });
-}
-
-export function postTodo(title, description) {
-  return createAction({
-    endpoint: `${BASE_URL}/todos`,
-    headers: {"content-type": "application/json"},
-    method: "POST",
-    types: [POST_TODOS_REQUEST, POST_TODOS_SUCCESS, POST_TODOS_FAILURE],
-    body: JSON.stringify({title: title, description: description})
   });
 }
 

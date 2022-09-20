@@ -8,7 +8,7 @@ import {
   makeStyles,
   TextField,
 } from "@material-ui/core";
-import { postTodo } from "../store/actions";
+import { postMonitor } from "../store/actions";
 
 
 import { useState } from "react";
@@ -22,7 +22,8 @@ const useStyles = makeStyles((theme) =>
       },
     },
     formTitle: {
-      background: 'linear-gradient(135deg,  #efd301 30%, #00008b  80%)',
+      background: 'linear-gradient(-45deg,  #efd301 15%, #00008b  50%)',
+      color:'white'
     }
   })
 );
@@ -36,13 +37,13 @@ export default function AddMonitorModal({ onClose }) {
 
   function submitNewItem(e) {
     e.preventDefault();
-    dispatch(postTodo(name, numero, exp))
+    dispatch(postMonitor(name, numero, exp))
     onClose();
   }
   return (
     <Dialog maxWidth="md" fullWidth open onClose={onClose}>
       <form onSubmit={submitNewItem}>
-        <DialogTitle className={classes.formTitle}>Venha ser monitor</DialogTitle>
+        <DialogTitle className={classes.formTitle}>Venha ser Monitor Adote!! &nbsp; &#128526;</DialogTitle>
         <DialogContent className={classes.formBody}>
         <TextField
             value={name}
@@ -58,7 +59,7 @@ export default function AddMonitorModal({ onClose }) {
             type="text"
             fullWidth
             variant="outlined"
-            label="Número"
+            label="Número com DDD"
             onChange={(e)=>setNumero(e.target.value)}
             required
           />

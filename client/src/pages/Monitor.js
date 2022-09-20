@@ -1,8 +1,7 @@
 import { createStyles, Fab, makeStyles, Typography } from "@material-ui/core";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import AddMonitorModal from "../components/AddMonitorModal";
-import AppTodoList from "../components/AppTodoList";
 import { getTodos } from "../store/actions";
 
 const useStyles = makeStyles((theme) =>
@@ -32,7 +31,6 @@ const useStyles = makeStyles((theme) =>
 export default function Monitor() {
   let classes = useStyles();
   let dispatch = useDispatch();
-  let todosList = useSelector((state) => Object.values(state.todos.todos));
 
   // Fetch tasks
   useEffect(() => {
@@ -44,10 +42,9 @@ export default function Monitor() {
 
   return (
     <div className={classes.root}>
-      {todosList.length === 0 && (
-        <Typography variant="h6">Como funcionamos monitor + form</Typography>
-      )}
-      <AppTodoList todosList={todosList} />
+
+        <Typography variant="h6">Venha fazer a diferença no sistema educacional brasileiro!</Typography>
+
       <div className={classes.list} >
         
        

@@ -47,6 +47,12 @@ const useStyles = makeStyles((theme) =>
 
       
     },
+    logo:{
+      height:'150px',
+      width:'150px',
+      margin:'auto'
+    },
+
     yellowlink1:{
       textDecoration:"none",
       height: "fit-content",
@@ -78,22 +84,22 @@ export default function AppNavbar() {
 
   useEffect(() => {
    const setbtt = window.location.pathname.split('-')[2]
-   setYellow(setbtt)
+   setYellow(setbtt ? setbtt : 'home')
   }, [yellow])
   
   return (
     <AppBar position="static">
       <div className={classes.container}>
       <Toolbar className={classes.center}>
-        <Link className={classes.link} to={'/'}>
-        <Avatar variant="rounded" alt='logo' src="/static/images/logo.png"></Avatar>
+        <Link className={classes.link} to={'/'} onClick={()=> setYellow('home')}>
+        <img variant="rounded" className={classes.logo} alt='logo' src={"static/images/avatar/logo.png"}></img>
         </Link>
         <Typography variant="h4">Adote um aluno</Typography>
 
       </Toolbar>
       
-      <Link className={yellow === 'aluno' ? classes.yellowlink1 : classes.link1} onClick={()=> setYellow('aluno')} to='/quero-ser-aluno'><Typography variant="button">Sobre ser aluno</Typography></Link>
-      <Link className={yellow === 'monitor' ? classes.yellowlink2 : classes.link2} onClick={()=> setYellow('monitor')}  to='/quero-ser-monitor'><Typography variant="button">Sobre ser monitor</Typography></Link>
+      <Link className={yellow === 'aluno' ? classes.yellowlink1 : classes.link1} onClick={()=> setYellow('aluno')} to='/quero-ser-aluno'><Typography variant="button">Como é ser aluno adote?</Typography></Link>
+      <Link className={yellow === 'monitor' ? classes.yellowlink2 : classes.link2} onClick={()=> setYellow('monitor')}  to='/quero-ser-monitor'><Typography variant="button">Como é ser monitor adote?</Typography></Link>
       </div>
     </AppBar>
   );
