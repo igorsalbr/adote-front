@@ -8,53 +8,47 @@ from sqlalchemy import Boolean, Column, DateTime, Integer, String
 # SETUP
 app = Flask(__name__)
 CORS(app)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///todos.sqlite3"
-app.config["SECRET_KEY"] = "secret"
-db = SQLAlchemy(app)
+
 
 
 # MODELS
-class Todo(db.Model):
-    __tablename__ = "todos"
+class Monitor():
     id = Column(Integer, primary_key=True)
-    title = Column(String, nullable=False)
-    description = Column(String)
-    completed = Column(Boolean, default=False, nullable=False)
+    name = Column(String, nullable=False)
+    numero = Column(String)
+    exp=  Column(String)
+    info = Column(Boolean, default=False, nullable=False)
     created_at = Column(DateTime, default=datetime.now)
 
     def to_json(self):
         return {
             "id": self.id,
-            "title": self.title,
-            "description": self.description if self.description else "",
+            "name": self.name,
+            "numero": self.numero,
+            "exp": self.exp if self.exp else '-',
             "completed": self.completed if self.completed else False,
             "created_at": int(datetime.timestamp(self.created_at)),
         }
 
 
 # ROUTES
-@app.route("/todos", methods=["GET", "POST"])
-def todos():
+@app.route("/monitores", methods=["GET", "POST"])
+def monitor():
     if request.method == "GET":
         # Return all todos if get
-        todos = db.session.query(Todo).all()
-        return jsonify(list(map(lambda t: t.to_json(), todos)))
+        print('nothing to show')
 
     elif request.method == "POST":
         # Create new todo record if POST
         json = request.get_json()
 
         # Check required fields
-        if "title" not in json:
+        if "numero" not in json:
             abort(400, "Missing required fields.")
 
-        # Create todo
-        new_todo = Todo()
-        new_todo.title = json["title"]
-        new_todo.description = json.get("description")
-        db.session.add(new_todo)
-        db.session.commit()
-        return jsonify(new_todo.to_json())
+        # Send to csv
+        
+        return json
 
 
 @app.route("/todos/<int:id>", methods=["GET", "PATCH", "DELETE"])
