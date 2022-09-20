@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) =>
       },
     },
     formTitle: {
-      background: 'linear-gradient(-45deg,  #efd301 15%, #00008b  50%)',
+      background: 'linear-gradient(-45deg,  #efd301 15%, #0a5200  50%)',
       color:'white'
     }
   })

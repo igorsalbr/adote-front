@@ -31,7 +31,14 @@ const useStyles = makeStyles((theme) =>
      button2: {
       width: "100px",
       margin: "50px",
+      backgroundColor:"#0a5200",
+      color: "white",
+      '&:hover':{
+         color:"black"
+      },
+
     },
+    
   })
 );
 
@@ -57,7 +64,7 @@ export default function Home() {
         <Fab color="default" variant="extended" size="medium" onClick={() => setAddAlunoModal(true)}   className={classes.button}>
         Quero ser aluno!
         </Fab>
-        <Fab color="primary" variant="extended" size="medium" onClick={() => setAddMonitorModal(true)} className={classes.button2}>
+        <Fab  variant="extended" size="medium" onClick={() => setAddMonitorModal(true)} className={classes.button2}>
         Quero ser monitor!
         </Fab>
         

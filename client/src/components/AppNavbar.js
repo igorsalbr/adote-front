@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) =>
       marginLeft:'20px',
       marginBottom:'auto',
       marginRight: "auto",
-      height: "100px",
+      height: "10vh",
       gap:'50px'
     },
     container: {
@@ -18,6 +18,8 @@ const useStyles = makeStyles((theme) =>
     }, 
     link: {
       textDecoration:'none',
+      color:"white",
+      whiteSpace:"nowrap"
     },
     link1:{
       textDecoration:"none",
@@ -75,6 +77,9 @@ const useStyles = makeStyles((theme) =>
       color:"#efd301",
     
     },
+    nav:{
+      backgroundColor:"#0a5200"
+    },
 
   })
 );
@@ -88,13 +93,13 @@ export default function AppNavbar() {
   }, [yellow])
   
   return (
-    <AppBar position="static">
+    <AppBar className={classes.nav} position="static">
       <div className={classes.container}>
       <Toolbar className={classes.center}>
         <Link className={classes.link} to={'/'} onClick={()=> setYellow('home')}>
-        <img variant="rounded" className={classes.logo} alt='logo' src={"static/images/avatar/logo.png"}></img>
-        </Link>
         <Typography variant="h4">Adote um aluno</Typography>
+        </Link>
+        
 
       </Toolbar>
       

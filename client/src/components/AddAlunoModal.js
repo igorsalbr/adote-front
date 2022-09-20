@@ -22,7 +22,7 @@ import {
         },
       },
       formTitle: {
-        background: 'linear-gradient(45deg, #00008b 15%,  #efd301 50%)',
+        background: 'linear-gradient(45deg, #0a5200 15%,  #efd301 50%)',
         color: 'white'
       }
     })
