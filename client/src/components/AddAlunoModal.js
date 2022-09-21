@@ -22,9 +22,15 @@ import {
         },
       },
       formTitle: {
-        background: 'linear-gradient(45deg, #0a5200 15%,  #efd301 50%)',
+        background: 'linear-gradient(45deg, #175f00 15%,  #efd301 50%)',
         color: 'white'
-      }
+      },
+    emb:{
+      backgroundColor:'#175f00',
+      color:'white' ,
+      '&:hover':{
+        backgroundColor:"  #efd301 "
+      },}
     })
   );
   
@@ -33,6 +39,7 @@ import {
     let dispatch = useDispatch();
     let [name, setName]= useState('')
     let [numero, setNumero]= useState('')
+    let [obj, setObj]= useState('')
     let [exp, setExp]= useState('')
   
     function submitNewItem(e) {
@@ -56,12 +63,23 @@ import {
             />
             <TextField
               value={numero}
-              type="text"
+              type="tel"
               fullWidth
               variant="outlined"
-              label="Número"
+              label="Número com DDD"
               onChange={(e)=>setNumero(e.target.value)}
+              
               required
+            />
+            <TextField
+              value={obj}
+              label="Qual seu objetivo de curso/faculdade?"
+              type="text"
+              multiline
+              minRows={2}
+              fullWidth
+              variant="outlined"
+              onChange={(e)=>setObj(e.target.value)}
             />
             <TextField
               value={exp}
@@ -76,7 +94,7 @@ import {
           </DialogContent>
           <DialogActions>
             <Button onClick={onClose}>Cancelar</Button>
-            <Button color="primary" variant="contained" type="submit">
+            <Button  className={classes.emb} variant="contained" type="submit">
               Embarcar
             </Button>
           </DialogActions>

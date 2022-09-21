@@ -57,7 +57,17 @@ export default function Home() {
 
   return (
     <div className={classes.root}>
-        <Typography variant="subtitle1">Somos um projeto educacional sem fins lucrativos criado por alunos da USP com o objetivo de suprir a falta de suporte que alguns alunos enfrentaram durante a pandemia</Typography>
+        <Typography variant="h6"><b>Quem somos</b></Typography>
+
+        <Typography variant="overline">Somos um projeto educacional sem fins lucrativos criado por alunos da USP com o objetivo de suprir a falta de suporte que alguns alunos enfrentaram durante a pandemia</Typography>
+        
+        <Typography variant="h6"><b>Objetivo</b></Typography>
+
+        <Typography variant="overline">Somos um projeto educacional sem fins lucrativos criado por alunos da USP com o objetivo de suprir a falta de suporte que alguns alunos enfrentaram durante a pandemia</Typography>
+
+        <Typography variant="h6"><b>Parcerias</b></Typography>
+
+        <Typography variant="overline">Resist neném</Typography>
 
       <div className={classes.list} >
         

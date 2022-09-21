@@ -22,9 +22,16 @@ const useStyles = makeStyles((theme) =>
       },
     },
     formTitle: {
-      background: 'linear-gradient(-45deg,  #efd301 15%, #0a5200  50%)',
+      background: 'linear-gradient(-45deg,  #efd301 15%, #175f00  50%)',
       color:'white'
-    }
+    },
+    emb:{
+      backgroundColor:'#175f00',
+      color:'white' ,
+      '&:hover':{
+        backgroundColor:"  #efd301 "
+      },
+    },
   })
 );
 
@@ -76,7 +83,7 @@ export default function AddMonitorModal({ onClose }) {
         </DialogContent>
         <DialogActions>
           <Button onClick={onClose}>Cancelar</Button>
-          <Button color="primary" variant="contained" type="submit">
+          <Button  className={classes.emb} variant="contained" type="submit">
             Embarcar
           </Button>
         </DialogActions>

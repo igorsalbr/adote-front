@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) =>
       marginBottom: 'auto',
       marginLeft: "auto",
     '&:hover': {
-       color: "#efd301",
+       color: " #fffd33",
     },
       
     },
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) =>
       marginRight:'50px',
       color:"white",
     '&:hover': {
-       color: "#efd301",
+       color: " #fffd33",
     }
 
       
@@ -59,10 +59,13 @@ const useStyles = makeStyles((theme) =>
       textDecoration:"none",
       height: "fit-content",
       width:"fit-content",
-      color:"#efd301",
+      color:" #fffd9d",
       marginTop: "auto",
       marginBottom: 'auto',
       marginLeft: "auto",
+      '&:hover': {
+        color: " #fffd33",
+     },
    
       
     },
@@ -74,11 +77,16 @@ const useStyles = makeStyles((theme) =>
       marginBottom: 'auto',
       marginLeft:'50px',
       marginRight:'50px',
-      color:"#efd301",
+      color:"#fffd9d",
+      '&:hover': {
+        color: " #fffd33",
+     },
     
     },
     nav:{
-      backgroundColor:"#0a5200"
+      backgroundColor:"#175f00",
+      position: 'fixed',
+      
     },
 
   })
