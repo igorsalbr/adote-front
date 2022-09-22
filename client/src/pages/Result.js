@@ -1,8 +1,7 @@
 import {
     createStyles,
     makeStyles,
-    Checkbox,
-    Typography, Button
+    Typography
   } from "@material-ui/core";
   import { getAluno, getMonitor, patchAluno, patchMonitor } from "../store/actions";
 
