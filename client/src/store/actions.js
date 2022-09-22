@@ -30,7 +30,6 @@ export const PATCH_MONITOR_FAILURE = "PATCH_MONITOR_FAILURE";
 export function getMonitor() {
   return createAction({
     endpoint: `${BASE_URL}/monitores`,
-    headers: {"content-type": "application/json"},
     method: "GET",
     types: [GET_MONITOR_REQUEST, GET_MONITOR_SUCCESS, GET_MONITOR_FAILURE],
   });
@@ -38,7 +37,6 @@ export function getMonitor() {
 export function getAluno() {
   return createAction({
     endpoint: `${BASE_URL}/alunos`,
-    headers: {"content-type": "application/json"},
     method: "GET",
     types: [GET_ALUNO_REQUEST, GET_ALUNO_SUCCESS, GET_ALUNO_FAILURE],
   });
@@ -54,13 +52,13 @@ export function postMonitor(name, numero , exp) {
     body: JSON.stringify({name: name, numero: numero , exp: exp})
   });
 }
-export function postAluno(name, numero , exp) {
+export function postAluno(name, numero , obj) {
   return createAction({
     endpoint: `${BASE_URL}/alunos`,
     headers: {"content-type": "application/json"},
     method: "POST",
     types: [POST_ALUNO_REQUEST, POST_ALUNO_SUCCESS, POST_ALUNO_FAILURE],
-    body: JSON.stringify({name: name, numero: numero , exp: exp})
+    body: JSON.stringify({name: name, numero: numero , obj: obj})
   });
 }
 export function patchAluno(id, info) {

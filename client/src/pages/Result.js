@@ -1,12 +1,14 @@
 import {
     createStyles,
     makeStyles,
-    Checkbox
+    Checkbox,
+    Typography, Button
   } from "@material-ui/core";
   import { getAluno, getMonitor, patchAluno, patchMonitor } from "../store/actions";
+
+  import ShowResult from "../components/ShowResult";
   
-  
-  import {  useEffect } from "react";
+  import {  useEffect, useState } from "react";
   import { useDispatch, useSelector } from "react-redux";
   
   const useStyles = makeStyles((theme) =>
@@ -14,54 +16,74 @@ import {
       separator:{
         display:'flex',
         flexDirection:'row',
-        gap:'100px'
+        alignContent: 'center',
+        marginTop: '20px'
+      },root:{
+        padding:'150px',
+      },
+      title: {
+        alignSelf: 'center',
+        textAlign: 'center',
+        borderBottom:"2px solid blue",
+        minWidth: '600px'
+
+      },
+      separator2:{
+        borderRight: '1px solid black',
+        paddingRight:'20px'
       },
     })
   );
   
-  export default function AddAlunoModal({ onClose }) {
+  export default function Result() {
     let classes = useStyles();
     let dispatch = useDispatch();
-    let alunos = useSelector((state) => Object.values(state.member.alunos));
-    let monitores = useSelector((state) => Object.values(state.member.monitores));
+    let member = useSelector((state) => state);
+    let [mtr, setMtr] = useState([])
+    let [str, setStr] = useState([])
+    let [updateM, setUpdateM] = useState()
+    let [updateA, setUpdateA] = useState()
 
 
-  // Fetch tasks
+
+
   useEffect(() => {
-    dispatch(getAluno());
-    dispatch(getMonitor());
-  }, [dispatch]);
-  function completeAluno(id, completed){
-    console.log(completed)
-    dispatch(patchAluno(id, completed))
+    setTimeout(200)
+    dispatch(getMonitor());  
+  }, [dispatch, updateM ]);
+  
+  useEffect(() => {
+    if (member.member.monitor !== undefined && member.member.monitor !== null){ setMtr(Object.values(member.member.monitor))}
 
-    
-  }
-  function completeMonitor(id, completed){
-    console.log(completed)
-    dispatch(patchMonitor(id, completed))
+  }, [member.member.monitor ]);
 
-    
-  }
+
+  useEffect(() => {
+    setTimeout(200)
+
+    dispatch(getAluno());  
+  }, [dispatch, updateA]);
+  
+  useEffect(() => {
+    if (member.member.aluno !== undefined && member.member.aluno !== null){ setStr(Object.values(member.member.aluno))}
+
+  }, [member.member.aluno]);
+
+
+
+
    
     return (
-      <div className={classes.separator}>
-        {alunos.map((item)=>(
-            <><div>{item.name}</div>
-            <div>{item.numero}</div>
-            <div>{item.obj}</div>
-            <Checkbox checked={item.completed} onChange={()=> completeAluno(item.id, !item.completed)}></Checkbox>
+      <div className={classes.root}>
+        <Typography variant="h5" className={classes.title}> RESULTADOS </Typography>
+        <div className={classes.separator}>
 
-            </>      
-))}
- {monitores.map((item)=>(
-            <><div>{item.name}</div>
-            <div>{item.numero}</div>
-            <div>{item.exp}</div>
-            <Checkbox checked={item.completed} onChange={()=> completeMonitor(item.id, !item.completed)}></Checkbox>
 
-            </>      
-))}
+          
+        <ShowResult  todosList={mtr} patchFunc={patchMonitor} title="Monitor" update={updateM} setUpdate={setUpdateM}></ShowResult>
+        <ShowResult todosList={str} patchFunc={patchAluno} title="Aluno" update={updateA} setUpdate={setUpdateA}></ShowResult>
+        </div>
+
       </div>
     );
   }

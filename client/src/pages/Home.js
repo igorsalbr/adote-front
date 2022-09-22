@@ -1,9 +1,7 @@
 import { createStyles, Fab, makeStyles, Typography } from "@material-ui/core";
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState } from "react";
 import AddMonitorModal from "../components/AddMonitorModal";
 import AddAlunoModal from '../components/AddAlunoModal'
-import { getTodos } from "../store/actions";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -44,14 +42,10 @@ const useStyles = makeStyles((theme) =>
 
 export default function Home() {
   let classes = useStyles();
-  let dispatch = useDispatch();
   let [addMonitorModal, setAddMonitorModal] = useState(false);
   let [addAlunoModal, setAddAlunoModal] = useState(false);
 
-  // Fetch tasks
-  useEffect(() => {
-    dispatch(getTodos());
-  }, [dispatch]);
+  
 
   // Hold state for if new Monitor modal is open
 

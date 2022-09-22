@@ -14,7 +14,8 @@ db = SQLAlchemy(app)
 
 
 # MODELS
-class Monitor():
+class Monitor(db.Model):
+    __tablename__ = "monitor"
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
     numero = Column(String)
@@ -28,10 +29,11 @@ class Monitor():
             "name": self.name,
             "numero": self.numero,
             "exp": self.exp if self.exp else '-',
-            "completed": self.completed if self.completed else False,
+            "info": self.info if self.info else False,
             "created_at": int(datetime.timestamp(self.created_at)),
         }
-class Aluno():
+class Aluno(db.Model):
+    __tablename__ = "aluno"
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
     numero = Column(String)
@@ -44,8 +46,8 @@ class Aluno():
             "id": self.id,
             "name": self.name,
             "numero": self.numero,
-            "exp": self.exp if self.exp else '-',
-            "completed": self.completed if self.completed else False,
+            "obj": self.obj if self.obj else '-',
+            "info": self.info if self.info else False,
             "created_at": int(datetime.timestamp(self.created_at)),
         }
 
@@ -55,8 +57,9 @@ class Aluno():
 def monitores():
     if request.method == "GET":
         # Return all todos if get
-        monitores = db.session.query(Monitor).all()
+        monitores = db.session.query(Monitor).all()     
         return jsonify(list(map(lambda t: t.to_json(), monitores)))
+
 
     elif request.method == "POST":
         # Create new todo record if POST
@@ -68,7 +71,7 @@ def monitores():
 
         # Create todo
         new_todo = Monitor()
-        new_todo.name = json.get(["name"])
+        new_todo.name = json.get("name")
         new_todo.numero = json.get("numero")
         new_todo.exp = json.get("exp")
         db.session.add(new_todo)
@@ -92,8 +95,8 @@ def alunos():
             abort(400, "Missing required fields.")
 
         # Create todo
-        new_todo = Monitor()
-        new_todo.name = json.get(["name"])
+        new_todo = Aluno()
+        new_todo.name = json.get("name")
         new_todo.numero = json.get("numero")
         new_todo.obj = json.get("obj")
         db.session.add(new_todo)
@@ -115,7 +118,7 @@ def monitor(id):
     elif request.method == "PATCH":
         # Update fields if PATCH
         json = request.get_json()
-        updateable_fields = ["name", "numero", "info"]
+        updateable_fields = [ "info"]
         for field in updateable_fields:
             if field in json:
                 setattr(monitor, field, json[field])
@@ -136,42 +139,15 @@ def aluno(id):
     elif request.method == "PATCH":
         # Update fields if PATCH
         json = request.get_json()
-        updateable_fields = ["name", "numero", "info"]
+        updateable_fields = [ "info"]
         for field in updateable_fields:
             if field in json:
                 setattr(aluno, field, json[field])
         db.session.commit()
         return jsonify(aluno.to_json())
 
-""""
-@app.route("/todos/<int:id>", methods=["GET", "PATCH", "DELETE"])
-def todo(id):
-    # Get current todo
-    todo = db.session.query(Todo).get(id)
-    if not todo:
-        abort(404, "Can't find todo item")
 
-    if request.method == "GET":
-        # Serialize if GET
-        return jsonify(todo.to_json())
-
-    elif request.method == "PATCH":
-        # Update fields if PATCH
-        json = request.get_json()
-        updateable_fields = ["title", "description", "completed"]
-        for field in updateable_fields:
-            if field in json:
-                setattr(todo, field, json[field])
-        db.session.commit()
-        return jsonify(todo.to_json())
-
-    elif request.method == "DELETE":
-        # Delete task
-        db.session.delete(todo)
-        db.session.commit()
-        return "Success"
-"""
 
 if __name__ == "__main__":
-    #db.create_all()
+    db.create_all()
     app.run(debug=True)

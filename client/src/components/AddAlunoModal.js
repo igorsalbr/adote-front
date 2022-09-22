@@ -40,11 +40,10 @@ import {
     let [name, setName]= useState('')
     let [numero, setNumero]= useState('')
     let [obj, setObj]= useState('')
-    let [exp, setExp]= useState('')
   
     function submitNewItem(e) {
       e.preventDefault();
-      dispatch(postAluno(name, numero, exp))
+      dispatch(postAluno(name, numero, obj))
       onClose();
     }
     return (
@@ -81,16 +80,7 @@ import {
               variant="outlined"
               onChange={(e)=>setObj(e.target.value)}
             />
-            <TextField
-              value={exp}
-              label="Qual sua experiência com exatas?"
-              type="text"
-              multiline
-              minRows={2}
-              fullWidth
-              variant="outlined"
-              onChange={(e)=>setExp(e.target.value)}
-            />
+           
           </DialogContent>
           <DialogActions>
             <Button onClick={onClose}>Cancelar</Button>

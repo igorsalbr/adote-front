@@ -4,7 +4,7 @@ import { apiMiddleware } from "redux-api-middleware";
 import memberReducer from "./reducers";
 
 const reducers = {
-  member: memberReducer,
+   member:memberReducer,
 };
 
 export const history = createBrowserHistory();
