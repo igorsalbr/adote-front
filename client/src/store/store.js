@@ -1,10 +1,10 @@
 import { createBrowserHistory } from "history";
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import { apiMiddleware } from "redux-api-middleware";
-import todosReducer from "./reducers";
+import memberReducer from "./reducers";
 
 const reducers = {
-  todos: todosReducer,
+  member: memberReducer,
 };
 
 export const history = createBrowserHistory();

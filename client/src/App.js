@@ -5,9 +5,10 @@ import AppNavbar from "./components/AppNavbar";
 import Home from "./pages/Home";
 import Aluno from "./pages/Aluno";
 import Monitor from "./pages/Monitor";
+import Result from "./pages/Result";
 import store from "./store/store";
 
-const ROUTES = [{ path: "/quero-ser-aluno", component: Aluno },{ path: "/quero-ser-monitor", component: Monitor },{ path: "/", component: Home },];
+const ROUTES = [{ path: "/quero-ser-aluno", component: Aluno },{ path: "/quero-ser-monitor", component: Monitor },{ path: "/result", component: Result },{ path: "/", component: Home },];
 
 function App() {
   return (

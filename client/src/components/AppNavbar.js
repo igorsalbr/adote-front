@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Typography,createStyles,makeStyles, Avatar } from "@material-ui/core";
+import { AppBar, Toolbar, Typography,createStyles,makeStyles } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 const useStyles = makeStyles((theme) =>

@@ -1,6 +1,6 @@
 import { createStyles, Fab, makeStyles, Typography } from "@material-ui/core";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import AddMonitorModal from "../components/AddMonitorModal";
 import AddAlunoModal from '../components/AddAlunoModal'
 import { getTodos } from "../store/actions";
@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) =>
       maxWidth: 900,
       marginLeft: "auto",
       marginRight: "auto",
-      marginTop: '15px',
+      marginBottom: '10px',
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
