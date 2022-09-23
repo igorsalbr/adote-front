@@ -8,7 +8,6 @@ import {
     Typography
   
   } from "@material-ui/core";
-import { Height } from "@material-ui/icons";
   import { useDispatch } from "react-redux";
   
   

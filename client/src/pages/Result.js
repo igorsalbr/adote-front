@@ -1,7 +1,7 @@
 import {
     createStyles,
     makeStyles,
-    Typography
+    Typography, Input, Button
   } from "@material-ui/core";
   import { getAluno, getMonitor, patchAluno, patchMonitor } from "../store/actions";
 
@@ -12,6 +12,13 @@ import {
   
   const useStyles = makeStyles((theme) =>
     createStyles({
+      auth:{
+        width: '200px',
+        height:'200px',
+        paddingTop: '300px',
+        margin:'auto',
+
+      },
       separator:{
         display:'flex',
         flexDirection:'row',
@@ -31,6 +38,12 @@ import {
         borderRight: '1px solid black',
         paddingRight:'20px'
       },
+      page:{
+        height:'100vh',
+        width: '100vw',
+        margin:'auto',
+
+      },
     })
   );
   
@@ -40,14 +53,12 @@ import {
     let member = useSelector((state) => state);
     let [mtr, setMtr] = useState([])
     let [str, setStr] = useState([])
-    let [updateM, setUpdateM] = useState()
-    let [updateA, setUpdateA] = useState()
+    let [updateM, setUpdateM] = useState(false)
+    let [updateA, setUpdateA] = useState(false)
+    let [authorize, setAuthorize] = useState(false)
 
-
-
-
+ 
   useEffect(() => {
-    setTimeout(200)
     dispatch(getMonitor());  
   }, [dispatch, updateM ]);
   
@@ -58,7 +69,6 @@ import {
 
 
   useEffect(() => {
-    setTimeout(200)
 
     dispatch(getAluno());  
   }, [dispatch, updateA]);
@@ -67,7 +77,27 @@ import {
     if (member.member.aluno !== undefined && member.member.aluno !== null){ setStr(Object.values(member.member.aluno))}
 
   }, [member.member.aluno]);
+  function checkauth(){
+    let a = document.querySelectorAll('input')
+    if (a[0].value === 'adote' && a[1].value === process.env.REACT_APP_PASS){
+      setAuthorize(true)
+    }
 
+  }
+
+   if (!authorize){
+    return (<div className={classes.auth}>
+        <Input placeholder="user"></Input>
+        <br></br>
+
+        <Input placeholder="pass" type="password"> </Input>
+        <br></br>
+        <br></br>
+
+        <Button onClick={checkauth} variant='outlined'>ENTRAR</Button>
+
+    </div>)
+  }
 
 
 

@@ -95,22 +95,23 @@ const AlunosTXT = [
   },
 ];
 
+
 const MonitorTXT = [
   {
     text:
-    "Vocês só me deram esperança para não desistir do meu sonho",
+    "Eu amo o projeto e principalmente dedicação e humanidade dos monitores.",
   },
   {
-    text:"Projeto excelente que vem me ajudando muito na parte mais crucial dos estudos que é a resolução e o entendimento de questões. Os monitores são maravilhosos e eficientes nas explicações smp tirando nossas dúvidas!! Gratidão à todos vcs☺🤩",
-  },
-  {
-    text:
-"Foi muito bom ter encontrado esse projeto. Muito obrigada por te ajudado a mim, e com certeza, muitas outras pessoas de maneira tão prática e inclusiva.",
+    text:"Espero que vocês continuem com o projeto. São excelentes."
   },
   {
     text:
-"Esse contato entre alunos e ex-alunos é essencial para vestibulandos que estão na luta para conquistar uma vaga nas faculdades públicas. Existir um grupo de monitoria de exatas com alunos brilhantes, realmente é o diferencial do Adote Um Aluno.",
-  },
+"Sou fã do projeto e recomendo"
+ },
+  {
+    text:
+"Vcs são incríveis, toda gratidão é pouca pelo trabalho de vcs"
+ },
   {
     text:
 "Gostei muito pois ajuda quem não tem condições de pagar por uma monitoria",
