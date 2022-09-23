@@ -1,4 +1,4 @@
-import { createStyles, Fab, makeStyles, Typography } from "@material-ui/core";
+import { createStyles, Fab, makeStyles, Typography, Card } from "@material-ui/core";
 import { useState } from "react";
 import AddMonitorModal from "../components/AddMonitorModal";
 import AddAlunoModal from '../components/AddAlunoModal'
@@ -16,6 +16,8 @@ const useStyles = makeStyles((theme) =>
       alignContent: "center",
     },
     list: {
+      position: 'fixed',
+      bottom:'0',
       display: "flex",
       flexDirection: "row",
       alignItems: "center",
@@ -36,6 +38,18 @@ const useStyles = makeStyles((theme) =>
       },
 
     },
+    card: {
+      paddingTop: "100px",
+      paddingRight: "50px",
+      paddingLeft: "50px",
+      boxShadow: "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px",
+      alignItems: "center",
+      alignContent: "center",
+      textAlign: 'center',
+      width: '90vw',
+      
+
+    },
     
   })
 );
@@ -51,6 +65,8 @@ export default function Home() {
 
   return (
     <div className={classes.root}>
+      <Card className={classes.card}>
+
         <Typography variant="h6"><b>Quem somos</b></Typography>
 
         <Typography variant="overline">Somos um projeto educacional sem fins lucrativos criado por alunos da USP com o objetivo de suprir a falta de suporte que alguns alunos enfrentaram durante a pandemia</Typography>
@@ -62,6 +78,8 @@ export default function Home() {
         <Typography variant="h6"><b>Parcerias</b></Typography>
 
         <Typography variant="overline">Resist neném</Typography>
+       </Card>
+
 
       <div className={classes.list} >
         
@@ -73,9 +91,9 @@ export default function Home() {
         </Fab>
         
       </div>
+
       {addMonitorModal && <AddMonitorModal onClose={() => setAddMonitorModal(false)} />}
       {addAlunoModal && <AddAlunoModal onClose={() => setAddAlunoModal(false)} />}
-     
     </div>
   );
 }

@@ -68,35 +68,34 @@ const useStyles = makeStyles((theme) =>
     }
   })
 );
-
-const AlunosTXT = [
+const MonitorTXT = [
   {
     text:
-    "Vocês só me deram esperança para não desistir do meu sonho",
+    "Conseguimos realmente ajudar pessoas e fazer a diferença na vida delas, mesmo sem abdicar tanto tempo quanto qualquer outro projeto social",
   },
   {
-    text:"Projeto excelente que vem me ajudando muito na parte mais crucial dos estudos que é a resolução e o entendimento de questões. Os monitores são maravilhosos e eficientes nas explicações smp tirando nossas dúvidas!! Gratidão à todos vcs☺🤩",
-  },
-  {
-    text:
-"Foi muito bom ter encontrado esse projeto. Muito obrigada por te ajudado a mim, e com certeza, muitas outras pessoas de maneira tão prática e inclusiva.",
+    text:"Muito pratico! Ajuda a responder as dúvidas de vários alunos no mesmo dia!"
   },
   {
     text:
-"Esse contato entre alunos e ex-alunos é essencial para vestibulandos que estão na luta para conquistar uma vaga nas faculdades públicas. Existir um grupo de monitoria de exatas com alunos brilhantes, realmente é o diferencial do Adote Um Aluno.",
+"Poder ajudar com o tempo que temos disponível"
+},
+  {
+    text:
+"Flexibilidade e alcance para alunos que de outra forma não teriam acesso a um plantão de dúvidas"
+},
+  {
+    text:
+"Poder ajudar pessoas que estão passando por um processo semelhante ao que eu passei.",
   },
   {
     text:
-"Gostei muito pois ajuda quem não tem condições de pagar por uma monitoria",
-  },
-  {
-    text:
-"Vocês me ajudaram muito, principalmente em física, aprendi a realmente resolver os exercícios, perceber como era cobrado cada tema, eu gostava muito de quando me faziam perguntas sobre a questão pq na maioria das vezes eu mesma já sabia a resposta, faltava só um detalhe e isso me fez ficar mais atenta e me questionar mais... Enfim, MUITO OBRIGADA!",
-  },
+"Achei bem positiva a facilidade de comunicação entre mentores e alunos, sendo o grupo de whatsapp bem dinâmico. E, acima de tudo, o ponto mais positivo pra mim é ver que o projeto realmente é eficaz ao ajudar os alunos. Eles realmente conseguem sanar as dúvidas e ter um resultado muito bom no vestibular."
+},
 ];
 
 
-const MonitorTXT = [
+const AlunosTXT = [
   {
     text:
     "Eu amo o projeto e principalmente dedicação e humanidade dos monitores.",
@@ -114,12 +113,12 @@ const MonitorTXT = [
  },
   {
     text:
-"Gostei muito pois ajuda quem não tem condições de pagar por uma monitoria",
+"Sou fã do projeto. Se passar quero ajudar tb.",
   },
   {
     text:
-"Vocês me ajudaram muito, principalmente em física, aprendi a realmente resolver os exercícios, perceber como era cobrado cada tema, eu gostava muito de quando me faziam perguntas sobre a questão pq na maioria das vezes eu mesma já sabia a resposta, faltava só um detalhe e isso me fez ficar mais atenta e me questionar mais... Enfim, MUITO OBRIGADA!",
-  },
+"Vocês são incríveis! A ajuda disponibilizada no grupo tem ajudado absurdamente!"
+},
 ];
 export default function Aluno() {
   let classes = useStyles();
@@ -188,14 +187,14 @@ export default function Aluno() {
             margin:"auto",
    
           }}>
-        <Typography variant="overline" >&lsquo;&lsquo;&nbsp;{MonitorTXT[monitor].text}&nbsp;&lsquo;&lsquo;</Typography>
+        <Typography variant="overline" >&lsquo;&lsquo;&nbsp;{AlunosTXT[index].text}&nbsp;&lsquo;&lsquo;</Typography>
           </div>
         </Paper>
 
        
             <Button
               size="small"
-              onClick={goToNextMonitor}
+              onClick={goToNextAluno}
             >
               Próximo
                 <KeyboardArrowRight />
@@ -264,14 +263,14 @@ export default function Aluno() {
             margin:"auto",
    
           }}>
-        <Typography variant="overline" >&lsquo;&lsquo;&nbsp;{AlunosTXT[index].text}&nbsp;&lsquo;&lsquo;</Typography>
+        <Typography variant="overline" >&lsquo;&lsquo;&nbsp;{MonitorTXT[monitor].text}&nbsp;&lsquo;&lsquo;</Typography>
           </div>
         </Paper>
 
        
             <Button
               size="small"
-              onClick={goToNextAluno}
+              onClick={goToNextMonitor}
             >
               Próximo
                 <KeyboardArrowRight />
