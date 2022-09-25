@@ -22,11 +22,11 @@ const useStyles = makeStyles((theme) =>
       },
     },
     formTitle: {
-      background: 'linear-gradient(-45deg,  #efd301 15%, #175f00  50%)',
+      background: 'linear-gradient(-45deg,  #efd301 15%, #3d57a6  50%)',
       color:'white'
     },
     emb:{
-      backgroundColor:'#175f00',
+      backgroundColor:'#3d57a6',
       color:'white' ,
       '&:hover':{
         backgroundColor:"  #efd301 "

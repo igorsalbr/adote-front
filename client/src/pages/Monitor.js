@@ -1,4 +1,4 @@
-import { createStyles, Fab, makeStyles, Typography, Card, List, ListItem, ListItemIcon, ListItemText, Paper,  Button} from "@material-ui/core";
+import { createStyles, Fab, makeStyles, Typography,  List, ListItem, ListItemIcon, ListItemText, Paper,  Button} from "@material-ui/core";
 import {ArrowForward, KeyboardArrowRight }from '@material-ui/icons'
 import {  useState } from "react";
 import AddMonitorModal from "../components/AddMonitorModal";
@@ -6,7 +6,7 @@ import AddMonitorModal from "../components/AddMonitorModal";
 const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
-      maxWidth: 900,
+      maxWidth: '90%',
       marginLeft: "auto",
       marginRight: "auto",
       marginBottom:"10px",
@@ -14,23 +14,30 @@ const useStyles = makeStyles((theme) =>
       flexDirection: "column",
       alignItems: "center",
       alignContent: "center",
-      textAlign: 'center'
+      textAlign: 'left'
 
     },
     list: {
       paddingTop: "20px",
       paddingBottom:"20px",
+      paddingLeft:'20px',
       display: "flex",
       flexDirection: "column",
-      alignItems: "center",
+
+
+    }, 
+    list1: {
+      paddingTop: "20px",
+      paddingBottom:"20px",
+      paddingLeft:'40px',
+      display: "flex",
+      flexDirection: "column",
 
 
     }, 
     listItem: {
-      '&:hover': {
-        backgroundColor: "#f0f0f0",
-     }
-      
+        maxWidth: "80%",
+        margin:'0 auto'
 
     },
     link:{
@@ -39,9 +46,11 @@ const useStyles = makeStyles((theme) =>
     button: {
       position: 'fixed',
       bottom:'0',
-      width: "100px",
-      margin: "20px",
-      backgroundColor:'#175f00',
+      right:'0',
+      left:'0',
+      maxWidth:'400px',
+      margin: "20px auto",
+      backgroundColor:'#3d57a6',
       color:'white' ,
       '&:hover':{
         backgroundColor:"  #efd301 ",
@@ -52,20 +61,26 @@ const useStyles = makeStyles((theme) =>
     },
     card: {
       paddingTop: "100px",
-      paddingRight: "50px",
-      paddingLeft: "50px",
-      boxShadow: "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px",
+      
       alignItems: "center",
       alignContent: "center",
-      textAlign: 'center',
+      textAlign: 'left',
       width: '90vw',
       
 
     },
     hr:{
       marginTop:"20px",
-      marginBottom:"20px"
+    },
+    second:{
+      marginTop:'10px',
+      padding: '10px',
+      paddingLeft:'20px',
+
+      backgroundColor: "#f0f0f0",
+
     }
+    
   })
 );
 const MonitorTXT = [
@@ -155,17 +170,18 @@ export default function Aluno() {
 
   return (
     <div className={classes.root}>
-      <Card className={classes.card}>
-        <Typography variant="h6" className={classes.list}><b>Bem vindo, futuro Monitor!</b></Typography>
-        <Typography variant="overline">&nbsp;&nbsp;&nbsp;&nbsp;Monitor, experiencia de ser monitores, como funcionamos, tempo gasto no projeto, arwas administrativas futuro do grupo
-        </Typography>
-        
-        
-        <Typography variant="h6" className={classes.list}><b>Palavras que nos incentivam</b>
+      <div className={classes.card}>
+        <Typography variant="h6" className={classes.list1}><b>Bem vindo, futuro Monitor!</b></Typography>
+        <Typography variant="body1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Monitor, experiencia de ser monitores, como funcionamos, tempo gasto no projeto, arwas administrativas futuro do grupo
+        Monitor, experiencia de ser monitores, como funcionamos, tempo gasto no projeto, arwas administrativas futuro do grupoMonitor, experiencia de ser monitores, como funcionamos, tempo gasto no projeto,
+         arwas administrativas futuro do grupo
         </Typography>
         <div className={classes.list}>
+        <Typography variant="h6" className={classes.list}><b>O que dizem nossos monitores?</b>
+        </Typography>
         <Paper
           square
+          onClick={goToNextMonitor}
           style={{
             height: "90%",
             minHeight: '200px',
@@ -175,9 +191,10 @@ export default function Aluno() {
             alignContent:"center",
             justifyContent: "center" ,
             textAlign:'center',
-            backgroundColor:" #fffd9d"
+            background:'linear-gradient(-45deg,  #efd301 10%, #3d57a6  60%)',
+            cursor:'pointer',
+            margin:'0 auto'
 
-            
           }}
         >
         <div style={{
@@ -185,26 +202,29 @@ export default function Aluno() {
             justifyContent: "center",
             whiteSpace: "pre-wrap",
             margin:"auto",
+            color:'white'
    
           }}>
-        <Typography variant="overline" >&lsquo;&lsquo;&nbsp;{AlunosTXT[index].text}&nbsp;&lsquo;&lsquo;</Typography>
+        <Typography variant="overline" ><b>&lsquo;&lsquo;&nbsp;{MonitorTXT[monitor].text}&nbsp;&lsquo;&lsquo;</b></Typography>
           </div>
         </Paper>
 
        
             <Button
               size="small"
-              onClick={goToNextAluno}
+              onClick={goToNextMonitor}
             >
+              {monitor+1}/{CollectionSizeM}
+              &nbsp;&nbsp;
               Próximo
                 <KeyboardArrowRight />
               
             </Button>
             </div>
-       
-        <hr className={classes.hr}></hr>
-        <Typography variant="overline">Responsabilidades dos monitores:</Typography>
-        <List>
+
+               <List className={classes.second}>
+        <Typography variant="h6" className={classes.list}><b>Responsabilidades dos monitores:</b></Typography>
+
         <ListItem disablePadding className={classes.listItem}>
               <ListItemIcon>
                 <ArrowForward />
@@ -218,18 +238,7 @@ export default function Aluno() {
                 <ArrowForward />
               </ListItemIcon>
               <ListItemText primary="Qualidade" secondary="Ao responder um aluno, tenha certeza que ele entendeu os passos para o resultado. Se não souber como explicar ou responder alguma questão,
-              peça ajuda no grupo dos monitores, os alunos ditam o ritimo deles, nós damos o melhor suporte possível para qualquer
-              dúvida que eles possam ter"/>
-          </ListItem>
-          <ListItem disablePadding className={classes.listItem}>
-              <ListItemIcon>
-                <ArrowForward />
-              </ListItemIcon>
-              <ListItemText primary="Atividade" secondary="Não cobramos mínimo de tempo ou de perguntas para os monitores, nossa intenção é
-              que a maior parte das pessoas ajudem como puderem. Entretanto, temos muito mais demanda de aluno do que monitores para suprir, 
-              assim, para entregar um projeto de máxima qualidade, esperamos que se o monitor estiver livre e existir demanda de perguntar no 
-              grupo, ele responda e ajude os outros, temos reuniões para a ADM que são facultativas pros monitores, se você tem interesse
-              em participar da ideação e os próximos passos do projeto, seria legal que participassem!"/>
+              peça ajuda no grupo dos monitores. Os alunos ditam o ritimo deles e nós damos o melhor suporte possível!"/>
           </ListItem>
           <ListItem disablePadding className={classes.listItem}>
               <ListItemIcon>
@@ -239,11 +248,16 @@ export default function Aluno() {
               para elevarmos o nível da educação no Brasil inteiro! Para isso, os monitores têm que servir como uma base de exemplo e inspiração para os alunos."/>
           </ListItem>
         </List>
+        
+
+
         <div className={classes.list}>
-        <Typography variant="h6" className={classes.list}><b>O que dizem nossos monitores?</b>
+
+        <Typography variant="h6" className={classes.list}><b>Palavras que nos incentivam:</b>
         </Typography>
         <Paper
           square
+          onClick={goToNextAluno}
           style={{
             height: "90%",
             minHeight: '200px',
@@ -253,7 +267,12 @@ export default function Aluno() {
             alignContent:"center",
             justifyContent: "center" ,
             textAlign:'center',
-            backgroundColor:" #fffd9d",
+            background:'linear-gradient(-45deg,  #efd301 10%, #3d57a6  60%)',
+            margin:'0 auto',
+            cursor:'pointer'
+
+
+            
           }}
         >
         <div style={{
@@ -261,31 +280,34 @@ export default function Aluno() {
             justifyContent: "center",
             whiteSpace: "pre-wrap",
             margin:"auto",
-   
+            color:'white'
+
           }}>
-        <Typography variant="overline" >&lsquo;&lsquo;&nbsp;{MonitorTXT[monitor].text}&nbsp;&lsquo;&lsquo;</Typography>
+        <Typography variant="overline" ><b>&lsquo;&lsquo;&nbsp;{AlunosTXT[index].text}&nbsp;&lsquo;&lsquo;</b></Typography>
           </div>
         </Paper>
 
-       
+
             <Button
               size="small"
-              onClick={goToNextMonitor}
+              onClick={goToNextAluno}
             >
+              {index+1}/{CollectionSizeA}
+              &nbsp;&nbsp;
               Próximo
                 <KeyboardArrowRight />
               
             </Button>
+        </div>
         
-        <Typography variant="h6" className={classes.list}><b>Venha fazer a diferença no sistema educacional brasileiro!!</b>
+        <Typography variant="h6" className={classes.list1}><b>Venha fazer a diferença no sistema educacional brasileiro!!</b>
         </Typography>
 
-        <Fab color="primary" variant="extended" size="medium" onClick={() => setAddMonitorModal(true)} className={classes.button}>
+        <Button color="primary" variant="extended" size="medium" onClick={() => setAddMonitorModal(true)} className={classes.button}>
         Quero ser monitor!
-        </Fab>
-        </div>
+        </Button>
 
-        </Card>
+        </div>
 
 
         <></>

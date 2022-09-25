@@ -84,7 +84,7 @@ const useStyles = makeStyles((theme) =>
     
     },
     nav:{
-      backgroundColor:"#175f00",
+      backgroundColor:"#3d57a6",
       position: 'fixed',
       
     },

@@ -22,11 +22,11 @@ import {
         },
       },
       formTitle: {
-        background: 'linear-gradient(45deg, #175f00 15%,  #efd301 50%)',
+        background: 'linear-gradient(45deg, #3d57a6 15%,  #efd301 50%)',
         color: 'white'
       },
     emb:{
-      backgroundColor:'#175f00',
+      backgroundColor:'#3d57a6',
       color:'white' ,
       '&:hover':{
         backgroundColor:"  #efd301 "
