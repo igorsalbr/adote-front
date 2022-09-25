@@ -6,7 +6,7 @@ import AddAlunoModal from '../components/AddAlunoModal'
 const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
-      maxWidth: 900,
+      maxWidth: '90%',
       marginLeft: "auto",
       marginRight: "auto",
       marginBottom: '10px',
@@ -14,35 +14,54 @@ const useStyles = makeStyles((theme) =>
       flexDirection: "column",
       alignItems: "center",
       alignContent: "center",
+      textAlign:'left'
     },
     list: {
+      paddingBottom:"20px",
+      paddingLeft:'20px',
+      display: "flex",
+      flexDirection: "column",
+    },
+    list1: {
+      paddingTop: "20px",
+      paddingBottom:"20px",
+      paddingLeft:'20px',
+
+
+
+    }, 
+    button: {
       position: 'fixed',
       bottom:'0',
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "center",
-      float: "bottom",
-    },
-    button: {
-      margin: "50px",
-      backgroundColor:" #efd301 ",
-      width: '400px'
+      right:'0',
+      maxWidth:'400px',
+      margin: "20px auto",
+      backgroundColor:'#3d57a6',
+      color:'white' ,
+      '&:hover':{
+        backgroundColor:"  #efd301 ",
+      color:'black' ,
+      },
+
 
     },
-     button2: {
-      width: "400px",
-      margin: "50px",
-      backgroundColor:"#3d57a6",
-      color: "white",
+    button2: {
+      position: 'fixed',
+      bottom:'0',
+      left:'0',
+      maxWidth:'400px',
+      margin: "20px auto",
+      backgroundColor:'#efd301',
+      color:'black' ,
       '&:hover':{
-         color:"black"
+        backgroundColor:"#3d57a6",
+      color:'white' ,
       },
+
 
     },
     card: {
       paddingTop: "100px",
-      paddingRight: "50px",
-      paddingLeft: "50px",
       alignItems: "center",
       alignContent: "center",
       textAlign: 'left',
@@ -68,26 +87,26 @@ export default function Home() {
       <div className={classes.card}>
       <div className={classes.list} >
 
-        <Typography variant="h6"><b>Quem somos</b></Typography>
+        <Typography variant="h6" className={classes.list1}><b>Quem somos</b></Typography>
 
-        <Typography variant="body1">Somos um projeto educacional sem fins lucrativos criado por alunos da USP com o objetivo de suprir a falta de suporte que alguns alunos enfrentaram durante a pandemia</Typography>
+        <Typography variant="body1"  className={classes.list1}>Somos um projeto educacional sem fins lucrativos criado por alunos da USP com o objetivo de suprir a falta de suporte que alguns alunos enfrentaram durante a pandemia</Typography>
         
-        <Typography variant="h6"><b>Objetivo</b></Typography>
+        <Typography variant="h6"  className={classes.list1}><b>Objetivo</b></Typography>
 
-        <Typography variant="body1">Somos um projeto educacional sem fins lucrativos criado por alunos da USP com o objetivo de suprir a falta de suporte que alguns alunos enfrentaram durante a pandemia</Typography>
+        <Typography variant="body1"  className={classes.list1}>Somos um projeto educacional sem fins lucrativos criado por alunos da USP com o objetivo de suprir a falta de suporte que alguns alunos enfrentaram durante a pandemia</Typography>
 
-        <Typography variant="h6"><b>Parcerias</b></Typography>
+        <Typography variant="h6" className={classes.list1}><b>Parcerias</b></Typography>
 
-        <Typography variant="body1">Resist neném</Typography>
+        <Typography variant="body1" className={classes.list1}>Resist neném</Typography>
        </div>
 
 
       </div>
 
-        <Button color="default" variant="extended" size="medium" onClick={() => setAddAlunoModal(true)}   className={classes.button}>
+        <Button color="default" variant="extended" size="medium" onClick={() => setAddAlunoModal(true)}   className={classes.button2}>
         Quero ser aluno!
         </Button>
-        <Button  variant="extended" size="medium" onClick={() => setAddMonitorModal(true)} className={classes.button2}>
+        <Button  variant="extended" size="medium" onClick={() => setAddMonitorModal(true)} className={classes.button}>
         Quero ser monitor!
         </Button>
         

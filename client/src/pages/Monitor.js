@@ -1,4 +1,4 @@
-import { createStyles, Fab, makeStyles, Typography,  List, ListItem, ListItemIcon, ListItemText, Paper,  Button} from "@material-ui/core";
+import { createStyles, makeStyles, Typography,  List, ListItem, ListItemIcon, ListItemText, Paper,  Button} from "@material-ui/core";
 import {ArrowForward, KeyboardArrowRight }from '@material-ui/icons'
 import {  useState } from "react";
 import AddMonitorModal from "../components/AddMonitorModal";
@@ -79,7 +79,12 @@ const useStyles = makeStyles((theme) =>
 
       backgroundColor: "#f0f0f0",
 
-    }
+    },
+    center:{
+      textAlign:'center',
+      paddingBottom:'40px',
+      paddingTop:'20px'
+    },
     
   })
 );
@@ -172,7 +177,7 @@ export default function Aluno() {
     <div className={classes.root}>
       <div className={classes.card}>
         <Typography variant="h6" className={classes.list1}><b>Bem vindo, futuro Monitor!</b></Typography>
-        <Typography variant="body1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Monitor, experiencia de ser monitores, como funcionamos, tempo gasto no projeto, arwas administrativas futuro do grupo
+        <Typography variant="body1" className={classes.list1}>Monitor, experiencia de ser monitores, como funcionamos, tempo gasto no projeto, arwas administrativas futuro do grupo
         Monitor, experiencia de ser monitores, como funcionamos, tempo gasto no projeto, arwas administrativas futuro do grupoMonitor, experiencia de ser monitores, como funcionamos, tempo gasto no projeto,
          arwas administrativas futuro do grupo
         </Typography>
@@ -193,7 +198,9 @@ export default function Aluno() {
             textAlign:'center',
             background:'linear-gradient(-45deg,  #efd301 10%, #3d57a6  60%)',
             cursor:'pointer',
-            margin:'0 auto'
+            margin:'0 auto',
+            marginTop:"20px",
+
 
           }}
         >
@@ -205,7 +212,7 @@ export default function Aluno() {
             color:'white'
    
           }}>
-        <Typography variant="overline" ><b>&lsquo;&lsquo;&nbsp;{MonitorTXT[monitor].text}&nbsp;&lsquo;&lsquo;</b></Typography>
+        <Typography variant="overline" ><b>&ldquo;&nbsp;{MonitorTXT[monitor].text}&nbsp;&rdquo;</b></Typography>
           </div>
         </Paper>
 
@@ -269,7 +276,9 @@ export default function Aluno() {
             textAlign:'center',
             background:'linear-gradient(-45deg,  #efd301 10%, #3d57a6  60%)',
             margin:'0 auto',
-            cursor:'pointer'
+            cursor:'pointer',
+            marginTop:"20px",
+
 
 
             
@@ -283,7 +292,7 @@ export default function Aluno() {
             color:'white'
 
           }}>
-        <Typography variant="overline" ><b>&lsquo;&lsquo;&nbsp;{AlunosTXT[index].text}&nbsp;&lsquo;&lsquo;</b></Typography>
+        <Typography variant="overline" ><b>&ldquo;&nbsp;{AlunosTXT[index].text}&nbsp;&rdquo;</b></Typography>
           </div>
         </Paper>
 
@@ -300,7 +309,7 @@ export default function Aluno() {
             </Button>
         </div>
         
-        <Typography variant="h6" className={classes.list1}><b>Venha fazer a diferença no sistema educacional brasileiro!!</b>
+        <Typography variant="h4" className={classes.center}><b>Venha fazer a diferença no sistema educacional brasileiro!!</b>
         </Typography>
 
         <Button color="primary" variant="extended" size="medium" onClick={() => setAddMonitorModal(true)} className={classes.button}>

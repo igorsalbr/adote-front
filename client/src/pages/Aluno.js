@@ -1,4 +1,4 @@
-import { createStyles, Fab, makeStyles, Typography, List, ListItem, ListItemIcon, ListItemText, Paper, Button, MobileStepper} from "@material-ui/core";
+import { createStyles,  makeStyles, Typography, List, ListItem, ListItemIcon, ListItemText, Paper, Button} from "@material-ui/core";
 import {ArrowForward, KeyboardArrowRight }from '@material-ui/icons'
 import {  useState } from "react";
 import AddAlunoModal from "../components/AddAlunoModal";
@@ -30,8 +30,7 @@ const useStyles = makeStyles((theme) =>
       paddingTop: "20px",
       paddingBottom:"20px",
       paddingLeft:'40px',
-      display: "flex",
-      flexDirection: "column",
+
 
 
     }, 
@@ -132,11 +131,11 @@ export default function Aluno() {
     <div className={classes.root}>
       <div className={classes.card}>
         <Typography variant="h6" className={classes.list1}><b>Bem vindo, futuro Aluno!</b></Typography>
-        <Typography variant="body1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao se tornar aluno adote, você entrará em um grupo no whatsapp com 
+        <Typography variant="body1" className={classes.list1}>Ao se tornar aluno adote, você entrará em um grupo no whatsapp com 
         diversos alunos e alguns monitores. Nós funcionamos como um grupo de dúvidas, não damos aula ou cobramos
         presença, não temos provas e funcionamos gratuitamente. No grupo você pode tirar todo tipo de dúvida que quiser, desde vivência na 
         universidade até métodos de estudo, <b>mas focamos em tirar suas dúvidas de exatas para os vestibulares.</b>
-        &nbsp;&nbsp;Você pode enviar as suas dúvidas a hora que quiser no grupo e, assim que um
+        &nbsp; Você pode enviar as suas dúvidas a hora que quiser no grupo e, assim que um
         monitor estiver disponível ele irá te atender! 
         </Typography>
         <div className={classes.list}>
@@ -156,6 +155,7 @@ export default function Aluno() {
             textAlign:'center',
             background: 'linear-gradient(45deg, #efd301  10%,  #3d57a6 60%)',
             margin:'0 auto',
+            marginTop:"20px",
             cursor:'pointer'
 
 
@@ -169,7 +169,7 @@ export default function Aluno() {
             whiteSpace: "pre-wrap"     ,
             color:'white'
           }}>
-        <Typography variant="overline" ><b>&lsquo;&lsquo;&nbsp;{MyCollection[index].text}&nbsp;&lsquo;&lsquo;</b></Typography>
+        <Typography variant="overline" ><b>&ldquo;&nbsp;{MyCollection[index].text}&nbsp;&rdquo;</b></Typography>
           </div>
 
         </Paper>
