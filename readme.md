@@ -10,7 +10,7 @@ The client is a react app created using create-react-app. This app relies on the
 - redux
 - redux-api-middleware
 
-
+```npm start```
 
 ## Server
 
@@ -20,6 +20,9 @@ The server is a very simple Flask server. Its dependencies are:
 - Flask SQLAlchemy
 - SQLlite
 
+```activate venv
+python server.py
+```
 
 ## REST endpoints
 
