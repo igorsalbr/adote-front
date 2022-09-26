@@ -1,6 +1,6 @@
 # Adote um aluno
 
-This app is a landing for a brasillian social project called '''adote um aluno''' and a control area for the leads. We are looking for students and teachers -or anyone who wants to contribute to expand the project.
+This app is a landing for a brazillian social project called '''adote um aluno''' and a control area for the leads. We are looking for students and teachers -or anyone who wants to contribute to expand the project.
 ## Client
 
 The client is a react app created using create-react-app. This app relies on the use of a couple dependencies:
