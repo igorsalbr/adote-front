@@ -20,7 +20,8 @@ The server is a very simple Flask server. Its dependencies are:
 - Flask SQLAlchemy
 - SQLlite
 
-```activate venv
+```
+activate venv
 python server.py
 ```
 
