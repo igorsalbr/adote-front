@@ -34,13 +34,13 @@ const useStyles = makeStyles((theme) =>
       position: 'fixed',
       bottom:'0',
       right:'0',
-      maxWidth:'400px',
-      margin: "20px auto",
-      backgroundColor:'#3d57a6',
-      color:'white' ,
-      '&:hover':{
-        backgroundColor:"  #efd301 ",
+      width:'50%',
+      height:'10%',
+      backgroundColor:'#efd301',
       color:'black' ,
+      '&:hover':{
+        backgroundColor:"  #3d57a6 ",
+      color:'white' ,
       },
 
 
@@ -49,8 +49,8 @@ const useStyles = makeStyles((theme) =>
       position: 'fixed',
       bottom:'0',
       left:'0',
-      maxWidth:'400px',
-      margin: "20px auto",
+      width:'50%',
+      height:'10%',
       backgroundColor:'#efd301',
       color:'black' ,
       '&:hover':{
@@ -97,7 +97,7 @@ export default function Home() {
 
         <Typography variant="h6" className={classes.list1}><b>Parcerias</b></Typography>
 
-        <Typography variant="body1" className={classes.list1}>Resist neném</Typography>
+        <Typography variant="body1" className={classes.list1}>Resist enem</Typography>
        </div>
 
 

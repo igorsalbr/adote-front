@@ -105,14 +105,14 @@ export default function AppNavbar() {
       <div className={classes.container}>
       <Toolbar className={classes.center}>
         <Link className={classes.link} to={'/'} onClick={()=> setYellow('home')}>
-        <Typography variant="h4">Adote um aluno</Typography>
+        <Typography variant="h6">Adote um aluno</Typography>
         </Link>
         
 
       </Toolbar>
       
-      <Link className={yellow === 'aluno' ? classes.yellowlink1 : classes.link1} onClick={()=> setYellow('aluno')} to='/quero-ser-aluno'><Typography variant="button">Como é ser aluno adote?</Typography></Link>
-      <Link className={yellow === 'monitor' ? classes.yellowlink2 : classes.link2} onClick={()=> setYellow('monitor')}  to='/quero-ser-monitor'><Typography variant="button">Como é ser monitor adote?</Typography></Link>
+      <Link className={yellow === 'aluno' ? classes.yellowlink1 : classes.link1} onClick={()=> setYellow('aluno')} to='/quero-ser-aluno'><Typography variant="button">Sobre ser aluno</Typography></Link>
+      <Link className={yellow === 'monitor' ? classes.yellowlink2 : classes.link2} onClick={()=> setYellow('monitor')}  to='/quero-ser-monitor'><Typography variant="button">Sobre ser monitor</Typography></Link>
       </div>
     </AppBar>
   );
