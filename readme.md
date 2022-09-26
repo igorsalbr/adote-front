@@ -37,6 +37,7 @@ DElETE monitor n aluno
 
 ## Model definitions
 Monitor
+
 nome: number  
 numero: string (required)  
 exp: string  
@@ -44,6 +45,7 @@ created_at: number
 info: boolean
 
 Aluno
+
 nome: number  
 numero: string (required)  
 obj: string  
