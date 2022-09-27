@@ -10,7 +10,7 @@ The client is a react app created using create-react-app. This app relies on the
 - redux
 - redux-api-middleware
 
-
+```npm start```
 
 ## Server
 
@@ -20,6 +20,10 @@ The server is a very simple Flask server. Its dependencies are:
 - Flask SQLAlchemy
 - SQLlite
 
+```
+activate venv
+python server.py
+```
 
 ## REST endpoints
 
@@ -31,8 +35,8 @@ POST /alunos
 POST /monitores
 PATCH /monitor/{ID}
 PATCH /aluno/{id}
-in progress:
-DElETE monitor n aluno
+DElETE /monitor/{ID}
+DELETE /aluno/{id}
 ```
 
 ## Model definitions
@@ -53,4 +57,11 @@ created_at: number
 info: boolean
 
 
-
+#TODO:
+- RESPONSIVE NAVBAR
+- ADD LOGO
+- ADD TEXT TO HOME N MONITOR PAGES
+- MONITORES PICS
+- AJUST LOGIN IN RESULT
+- ADD DELETE IN RESULT
+- HIDE CHECKED IN RESULT
