@@ -14,12 +14,14 @@ const useStyles = makeStyles((theme) =>
     },
     container: {
       display:'flex',
-      flexDirection:'row'
+      flexDirection:'row',
+      justifyContent:'center'
     }, 
     link: {
       textDecoration:'none',
       color:"white",
-      whiteSpace:"nowrap"
+      whiteSpace:"nowrap",
+      paddingBottom:'5px'
     },
     link1:{
       textDecoration:"none",
@@ -88,6 +90,70 @@ const useStyles = makeStyles((theme) =>
       position: 'fixed',
       
     },
+    cellink1:{
+      textDecoration:"none",
+      height: "fit-content",
+      width:"fit-content",
+      color:"white",
+      marginTop: "auto",
+      marginBottom: 'auto',
+      marginLeft: "auto",
+      textJustify:'center',
+
+    '&:hover': {
+       color: " #fffd33",
+    },
+
+      
+    },
+    cellink2:{
+      textDecoration:"none",
+      height: "fit-content",
+      width:"fit-content",
+      marginTop: "auto",
+      marginBottom: 'auto',
+      marginLeft:'20px',
+      marginRight:'20px',
+      color:"white",
+      textJustify:'center',
+
+    '&:hover': {
+       color: " #fffd33",
+    }
+
+      
+    },
+
+    celyellowlink1:{
+      textDecoration:"none",
+      height: "fit-content",
+      width:"fit-content",
+      color:" #fffd9d",
+      marginTop: "auto",
+      marginBottom: 'auto',
+      marginLeft: "auto",
+      textJustify:'center',
+
+      '&:hover': {
+        color: " #fffd33",
+     },
+   
+      
+    },
+    celyellowlink2:{
+      textDecoration:"none",
+      height: "fit-content",
+      width:"fit-content",
+      marginTop: "auto",
+      marginBottom: 'auto',
+      marginLeft:'20px',
+      marginRight:'20px',
+      color:"#fffd9d",
+      textJustify:'center',
+      '&:hover': {
+        color: " #fffd33",
+     },
+    },
 
   })
 );
@@ -99,21 +165,40 @@ export default function AppNavbar() {
    const setbtt = window.location.pathname.split('-')[2]
    setYellow(setbtt ? setbtt : 'home')
   }, [yellow])
-  
-  return (
-    <AppBar className={classes.nav} position="static">
-      <div className={classes.container}>
-      <Toolbar className={classes.center}>
-        <Link className={classes.link} to={'/'} onClick={()=> setYellow('home')}>
-        <Typography variant="h6">Adote um aluno</Typography>
-        </Link>
-        
-
-      </Toolbar>
+  console.log(window.innerWidth )
+ 
+  if (window && window.innerWidth > 700) { 
+    return(
+      <AppBar className={classes.nav} position="static">
+    <div className={classes.container}>
+    <Toolbar className={classes.center}>
+      <Link className={classes.link} to={'/'} onClick={()=> setYellow('home')}>
+      <Typography variant="h4">Adote um aluno</Typography>
+      </Link>
       
-      <Link className={yellow === 'aluno' ? classes.yellowlink1 : classes.link1} onClick={()=> setYellow('aluno')} to='/quero-ser-aluno'><Typography variant="button">Sobre ser aluno</Typography></Link>
-      <Link className={yellow === 'monitor' ? classes.yellowlink2 : classes.link2} onClick={()=> setYellow('monitor')}  to='/quero-ser-monitor'><Typography variant="button">Sobre ser monitor</Typography></Link>
-      </div>
+
+    </Toolbar>
+    
+    <Link className={yellow === 'aluno' ? classes.yellowlink1 : classes.link1} onClick={()=> setYellow('aluno')} to='/quero-ser-aluno'><Typography variant="button">Sobre ser aluno</Typography></Link>
+    <Link className={yellow === 'monitor' ? classes.yellowlink2 : classes.link2} onClick={()=> setYellow('monitor')}  to='/quero-ser-monitor'><Typography variant="button">Sobre ser monitor</Typography></Link>
+    </div>
+  </AppBar>) } 
+  else {
+  return (
+     <AppBar className={classes.nav} position="static">
+    <div className={classes.container}>
+    <Toolbar className={classes.center}>
+      <Link className={classes.link} to={'/'} onClick={()=> setYellow('home')}>
+      <Typography variant="h5">Adote um aluno</Typography>
+      </Link>
+      
+
+    </Toolbar>
+    
+    <Link className={yellow === 'aluno' ? classes.celyellowlink1 : classes.cellink1} onClick={()=> setYellow('aluno')} to='/quero-ser-aluno'><Typography variant="button">aluno</Typography></Link>
+    <Link className={yellow === 'monitor' ? classes.celyellowlink2 : classes.cellink2} onClick={()=> setYellow('monitor')}  to='/quero-ser-monitor'><Typography variant="button">monitor</Typography></Link>
+    </div>
     </AppBar>
-  );
+    
+  )};
 }
