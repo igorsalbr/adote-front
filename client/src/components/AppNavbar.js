@@ -189,7 +189,7 @@ export default function AppNavbar() {
     <div className={classes.container}>
     <Toolbar className={classes.center}>
       <Link className={classes.link} to={'/'} onClick={()=> setYellow('home')}>
-      <Typography variant="h5">Adote um aluno</Typography>
+      <Typography variant="h5">Adote</Typography>
       </Link>
       
 
