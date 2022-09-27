@@ -104,7 +104,7 @@ def alunos():
         return jsonify(new_todo.to_json())
         
       
-@app.route("/monitor/<int:id>", methods=["GET", "PATCH"])
+@app.route("/monitor/<int:id>", methods=["GET", "PATCH", "DELETE"])
 def monitor(id):
     # Get current todo
     monitor = db.session.query(Monitor).get(id)
@@ -124,8 +124,13 @@ def monitor(id):
                 setattr(monitor, field, json[field])
         db.session.commit()
         return jsonify(monitor.to_json())
+    elif request.method == "DELETE":
+        #del
+        db.session.delete(monitor)
+        db.session.commit()
+        return jsonify(monitor.to_json())
 
-@app.route("/aluno/<int:id>", methods=["GET", "PATCH"])
+@app.route("/aluno/<int:id>", methods=["GET", "PATCH", "DELETE"])
 def aluno(id):
     # Get current todo
     aluno = db.session.query(Aluno).get(id)
@@ -143,6 +148,11 @@ def aluno(id):
         for field in updateable_fields:
             if field in json:
                 setattr(aluno, field, json[field])
+        db.session.commit()
+        return jsonify(aluno.to_json())
+    elif request.method == "DELETE":
+        #del
+        db.session.delete(aluno)
         db.session.commit()
         return jsonify(aluno.to_json())
 

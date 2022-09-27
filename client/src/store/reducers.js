@@ -1,4 +1,4 @@
-import { GET_MONITOR_SUCCESS,GET_ALUNO_SUCCESS, POST_MONITOR_SUCCESS, POST_ALUNO_SUCCESS  } from "./actions";
+import { GET_MONITOR_SUCCESS,GET_ALUNO_SUCCESS, POST_MONITOR_SUCCESS, POST_ALUNO_SUCCESS, DELETE_ALUNO_SUCCESS, DELETE_MONITOR_SUCCESS } from "./actions";
 const initialState = {
     aluno:{},
     monitor:{}
@@ -25,6 +25,14 @@ export default function memberReducer(state = initialState, action) {
           monitor: {...state.member.monitores, [action.payload.id]: action.payload},
         };
     case POST_ALUNO_SUCCESS:
+        return {
+            aluno: {...state.member.alunos, [action.payload.id]: action.payload},
+          };
+    case DELETE_MONITOR_SUCCESS:
+        return {
+          monitor: {...state.member.monitores, [action.payload.id]: action.payload},
+        };
+    case DELETE_ALUNO_SUCCESS:
         return {
             aluno: {...state.member.alunos, [action.payload.id]: action.payload},
           };

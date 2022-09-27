@@ -26,6 +26,14 @@ export const PATCH_MONITOR_REQUEST = "PATCH_MONITOR_REQUEST";
 export const PATCH_MONITOR_SUCCESS = "PATCH_MONITOR_SUCCESS";
 export const PATCH_MONITOR_FAILURE = "PATCH_MONITOR_FAILURE";
 
+export const DELETE_ALUNO_REQUEST = "DELETE_ALUNO_REQUEST";
+export const DELETE_ALUNO_SUCCESS = "DELETE_ALUNO_SUCCESS";
+export const DELETE_ALUNO_FAILURE = "DELETE_ALUNO_FAILURE";
+
+export const DELETE_MONITOR_REQUEST = "DELETE_MONITOR_REQUEST";
+export const DELETE_MONITOR_SUCCESS = "DELETE_MONITOR_SUCCESS";
+export const DELETE_MONITOR_FAILURE = "DELETE_MONITOR_FAILURE";
+
 
 export function getMonitor() {
   return createAction({
@@ -77,6 +85,22 @@ export function patchMonitor(id, info) {
     method: "PATCH",
     types: [PATCH_MONITOR_REQUEST, PATCH_MONITOR_SUCCESS, PATCH_MONITOR_FAILURE],
     body: JSON.stringify({info: info})
+  });
+}
+export function delAluno(id) {
+  return createAction({
+    endpoint: `${BASE_URL}/aluno/${id}`,
+    headers: {"content-type": "application/json"},
+    method: "DELETE",
+    types: [DELETE_ALUNO_REQUEST, DELETE_ALUNO_SUCCESS, DELETE_ALUNO_FAILURE],
+  });
+}
+export function delMonitor(id) {
+  return createAction({
+    endpoint: `${BASE_URL}/monitor/${id}`,
+    headers: {"content-type": "application/json"},
+    method: "DELETE",
+    types: [DELETE_MONITOR_REQUEST, DELETE_MONITOR_SUCCESS, DELETE_MONITOR_FAILURE],
   });
 }
 

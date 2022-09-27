@@ -5,8 +5,8 @@ import {
     ListItemText,
     makeStyles,
     Checkbox,
-    Typography
-  
+    Typography,
+    Button,
   } from "@material-ui/core";
   import { useDispatch } from "react-redux";
   
@@ -34,12 +34,16 @@ import {
     })
   );
   
-  export default function ShowResult({ todosList, patchFunc, title, update, setUpdate}) {
+  export default function ShowResult({ todosList, delFunc,  patchFunc, title, update, setUpdate}) {
     let classes = useStyles();
     let dispatch = useDispatch();
     function completeTask(id, info){
       setUpdate(!update)     
       dispatch(patchFunc(id, info)) 
+    }
+    function delTask(id){
+      setUpdate(!update)     
+      dispatch(delFunc(id)) 
     }
     
     return (
@@ -54,6 +58,7 @@ import {
             <ListItemText primary={item.numero} className={ item.info ?  classes.todoText : ''} />
             <ListItemText primary={item.exp ? item.exp : item.obj} className={ item.info ?  classes.todoText : ''} />
             <Checkbox checked={item.info} onChange={()=> completeTask(item.id, !item.info)}></Checkbox>
+            <Button onClick={()=> delTask(item.id)}>Deletar</Button>
           </ListItem>
         ))}
       </List>

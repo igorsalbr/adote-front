@@ -3,7 +3,7 @@ import {
     makeStyles,
     Typography, Input, Button
   } from "@material-ui/core";
-  import { getAluno, getMonitor, patchAluno, patchMonitor } from "../store/actions";
+  import { getAluno, getMonitor, patchAluno, patchMonitor, delAluno, delMonitor } from "../store/actions";
 
   import ShowResult from "../components/ShowResult";
   
@@ -109,8 +109,8 @@ import {
 
 
           
-        <ShowResult  todosList={mtr} patchFunc={patchMonitor} title="Monitor" update={updateM} setUpdate={setUpdateM}></ShowResult>
-        <ShowResult todosList={str} patchFunc={patchAluno} title="Aluno" update={updateA} setUpdate={setUpdateA}></ShowResult>
+        <ShowResult  todosList={mtr} delFunc={delMonitor} patchFunc={patchMonitor} title="Monitor" update={updateM} setUpdate={setUpdateM}></ShowResult>
+        <ShowResult todosList={str} delFunc={delAluno} patchFunc={patchAluno} title="Aluno" update={updateA} setUpdate={setUpdateA}></ShowResult>
         </div>
 
       </div>
