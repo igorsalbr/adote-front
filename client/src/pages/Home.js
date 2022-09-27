@@ -91,6 +91,8 @@ export default function Home() {
 
         <Typography variant="body1"  className={classes.list1}>Somos um projeto educacional sem fins lucrativos criado por alunos da USP com o objetivo de suprir a falta de suporte que alguns alunos enfrentaram durante a pandemia</Typography>
         
+        <Typography variant="h6"  className={classes.list1}><b>monitores pic</b></Typography>
+
         <Typography variant="h6"  className={classes.list1}><b>Objetivo</b></Typography>
 
         <Typography variant="body1"  className={classes.list1}>Somos um projeto educacional sem fins lucrativos criado por alunos da USP com o objetivo de suprir a falta de suporte que alguns alunos enfrentaram durante a pandemia</Typography>
