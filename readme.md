@@ -20,8 +20,13 @@ The server is a very simple Flask server. Its dependencies are:
 - Flask SQLAlchemy
 - SQLlite
 
+
+MacOS
 ```
-activate venv
+python3 -m venv venv
+
+then loop throught: 
+source venv/bin/activate
 python server.py
 ```
 
