@@ -1,4 +1,4 @@
-import { createStyles, Button, makeStyles, Typography } from "@material-ui/core";
+import { createStyles, Button, makeStyles, Typography, ButtonGroup } from "@material-ui/core";
 import { useState } from "react";
 import AddMonitorModal from "../components/AddMonitorModal";
 import AddAlunoModal from '../components/AddAlunoModal'
@@ -16,13 +16,22 @@ const useStyles = makeStyles((theme) =>
       alignContent: "center",
       textAlign:'left'
     },
-    list: {
+    card: {
+      paddingTop: "100px",
+      alignItems: "center",
+      alignContent: "center",
+      textAlign: 'left',
+      width: '90vw',
+      
+
+    },
+    title: {
       paddingBottom:"20px",
       paddingLeft:'20px',
       display: "flex",
       flexDirection: "column",
     },
-    list1: {
+    titleOut: {
       paddingTop: "20px",
       paddingBottom:"20px",
       paddingLeft:'20px',
@@ -35,7 +44,7 @@ const useStyles = makeStyles((theme) =>
       bottom:'0',
       right:'0',
       width:'50%',
-      height:'10%',
+      height:'5%',
       backgroundColor:'#efd301',
       color:'black' ,
       '&:hover':{
@@ -50,7 +59,7 @@ const useStyles = makeStyles((theme) =>
       bottom:'0',
       left:'0',
       width:'50%',
-      height:'10%',
+      height:'5%',
       backgroundColor:'#efd301',
       color:'black' ,
       '&:hover':{
@@ -60,15 +69,7 @@ const useStyles = makeStyles((theme) =>
 
 
     },
-    card: {
-      paddingTop: "100px",
-      alignItems: "center",
-      alignContent: "center",
-      textAlign: 'left',
-      width: '90vw',
-      
-
-    },
+   
     
   })
 );
@@ -85,33 +86,34 @@ export default function Home() {
   return (
     <div className={classes.root}>
       <div className={classes.card}>
-      <div className={classes.list} >
+      <div className={classes.title} >
 
-        <Typography variant="h6" className={classes.list1}><b>Quem somos</b></Typography>
+        <Typography variant="h6" className={classes.titleOut}><b>Quem somos</b></Typography>
 
-        <Typography variant="body1"  className={classes.list1}>Somos um projeto educacional sem fins lucrativos criado por alunos da USP com o objetivo de suprir a falta de suporte que alguns alunos enfrentaram durante a pandemia</Typography>
+        <Typography variant="body1"  className={classes.titleOut}>Somos um projeto educacional sem fins lucrativos criado por alunos da USP com o objetivo de suprir a falta de suporte que alguns alunos enfrentaram durante a pandemia</Typography>
         
-        <Typography variant="h6"  className={classes.list1}><b>monitores pic</b></Typography>
+        <Typography variant="h6"  className={classes.titleOut}><b>monitores pic</b></Typography>
 
-        <Typography variant="h6"  className={classes.list1}><b>Objetivo</b></Typography>
+        <Typography variant="h6"  className={classes.titleOut}><b>Objetivo</b></Typography>
 
-        <Typography variant="body1"  className={classes.list1}>Somos um projeto educacional sem fins lucrativos criado por alunos da USP com o objetivo de suprir a falta de suporte que alguns alunos enfrentaram durante a pandemia</Typography>
+        <Typography variant="body1"  className={classes.titleOut}>Somos um projeto educacional sem fins lucrativos criado por alunos da USP com o objetivo de suprir a falta de suporte que alguns alunos enfrentaram durante a pandemia</Typography>
 
-        <Typography variant="h6" className={classes.list1}><b>Parcerias</b></Typography>
+        <Typography variant="h6" className={classes.titleOut}><b>Parcerias</b></Typography>
 
-        <Typography variant="body1" className={classes.list1}>Resist enem</Typography>
+        <Typography variant="body1" className={classes.titleOut}>Resist enem</Typography>
        </div>
 
 
       </div>
-
-        <Button color="default" variant="extended" size="medium" onClick={() => setAddAlunoModal(true)}   className={classes.button2}>
-        Quero ser aluno!
+       
+       <ButtonGroup >
+        <Button onClick={() => setAddAlunoModal(true)}   className={classes.button2}>
+        {window && window.innerWidth>700  ? 'Quero ser aluno!': 'Ser aluno'}
         </Button>
-        <Button  variant="extended" size="medium" onClick={() => setAddMonitorModal(true)} className={classes.button}>
-        Quero ser monitor!
+        <Button onClick={() => setAddMonitorModal(true)} className={classes.button}>
+        {window && window.innerWidth>700  ? 'Quero ser monitor!': 'Ser monitor'}
         </Button>
-        
+        </ButtonGroup>
 
       {addMonitorModal && <AddMonitorModal onClose={() => setAddMonitorModal(false)} />}
       {addAlunoModal && <AddAlunoModal onClose={() => setAddAlunoModal(false)} />}

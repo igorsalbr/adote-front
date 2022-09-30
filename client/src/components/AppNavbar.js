@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) =>
       marginBottom: 'auto',
       marginLeft: "auto",
     '&:hover': {
-       color: " #fffd33",
+       color: " gold",
     },
       
     },
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) =>
       marginRight:'50px',
       color:"white",
     '&:hover': {
-       color: " #fffd33",
+       color: " gold",
     }
 
       
@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) =>
       marginBottom: 'auto',
       marginLeft: "auto",
       '&:hover': {
-        color: " #fffd33",
+        color: " gold",
      },
    
       
@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) =>
       marginRight:'50px',
       color:"#fffd9d",
       '&:hover': {
-        color: " #fffd33",
+        color: " gold",
      },
     
     },
@@ -101,7 +101,7 @@ const useStyles = makeStyles((theme) =>
       textJustify:'center',
 
     '&:hover': {
-       color: " #fffd33",
+       color: " gold",
     },
 
       
@@ -118,7 +118,7 @@ const useStyles = makeStyles((theme) =>
       textJustify:'center',
 
     '&:hover': {
-       color: " #fffd33",
+       color: " gold",
     }
 
       
@@ -135,7 +135,7 @@ const useStyles = makeStyles((theme) =>
       textJustify:'center',
 
       '&:hover': {
-        color: " #fffd33",
+        color: " gold",
      },
    
       
@@ -151,7 +151,7 @@ const useStyles = makeStyles((theme) =>
       color:"#fffd9d",
       textJustify:'center',
       '&:hover': {
-        color: " #fffd33",
+        color: " gold",
      },
     },
 
@@ -165,7 +165,6 @@ export default function AppNavbar() {
    const setbtt = window.location.pathname.split('-')[2]
    setYellow(setbtt ? setbtt : 'home')
   }, [yellow])
-  console.log(window.innerWidth )
  
   if (window && window.innerWidth > 700) { 
     return(
@@ -179,8 +178,8 @@ export default function AppNavbar() {
 
     </Toolbar>
     
-    <Link className={yellow === 'aluno' ? classes.yellowlink1 : classes.link1} onClick={()=> setYellow('aluno')} to='/quero-ser-aluno'><Typography variant="button">Sobre ser aluno</Typography></Link>
-    <Link className={yellow === 'monitor' ? classes.yellowlink2 : classes.link2} onClick={()=> setYellow('monitor')}  to='/quero-ser-monitor'><Typography variant="button">Sobre ser monitor</Typography></Link>
+    <Link className={yellow === 'aluno' ? classes.yellowlink1 : classes.link1} onClick={()=> setYellow('aluno')} to='/quero-ser-aluno'><Typography variant="button">Sobre ser aluno Adote</Typography></Link>
+    <Link className={yellow === 'monitor' ? classes.yellowlink2 : classes.link2} onClick={()=> setYellow('monitor')}  to='/quero-ser-monitor'><Typography variant="button">Sobre ser monitor Adote</Typography></Link>
     </div>
   </AppBar>) } 
   else {

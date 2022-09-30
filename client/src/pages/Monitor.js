@@ -17,7 +17,16 @@ const useStyles = makeStyles((theme) =>
       textAlign: 'left'
 
     },
-    list: {
+    card: {
+      paddingTop: "100px",
+      alignItems: "center",
+      alignContent: "center",
+      textAlign: 'left',
+      width: '90vw',
+      
+
+    },
+    title: {
       paddingTop: "20px",
       paddingBottom:"20px",
       paddingLeft:'20px',
@@ -26,7 +35,7 @@ const useStyles = makeStyles((theme) =>
 
 
     }, 
-    list1: {
+    titleOut: {
       paddingTop: "20px",
       paddingBottom:"20px",
       paddingLeft:'40px',
@@ -59,23 +68,11 @@ const useStyles = makeStyles((theme) =>
 
 
     },
-    card: {
-      paddingTop: "100px",
-      
-      alignItems: "center",
-      alignContent: "center",
-      textAlign: 'left',
-      width: '90vw',
-      
-
-    },
-    hr:{
-      marginTop:"20px",
-    },
     second:{
       marginTop:'10px',
-      padding: '10px',
-      paddingLeft:'20px',
+      paddingTop: '20px',
+      paddingBottom: '20px',
+      marginLeft:'20px',
 
       backgroundColor: "#f0f0f0",
 
@@ -176,21 +173,20 @@ export default function Aluno() {
   return (
     <div className={classes.root}>
       <div className={classes.card}>
-        <Typography variant="h6" className={classes.list1}><b>Bem vindo, futuro Monitor!</b></Typography>
-        <Typography variant="body1" className={classes.list1}>Monitor, experiencia de ser monitores, como funcionamos, tempo gasto no projeto, arwas administrativas futuro do grupo
+        <Typography variant="h6" className={classes.titleOut}><b>Bem vindo, futuro Monitor!</b></Typography>
+        <Typography variant="body1" className={classes.titleOut}>Monitor, experiencia de ser monitores, como funcionamos, tempo gasto no projeto, arwas administrativas futuro do grupo
         Monitor, experiencia de ser monitores, como funcionamos, tempo gasto no projeto, arwas administrativas futuro do grupoMonitor, experiencia de ser monitores, como funcionamos, tempo gasto no projeto,
          arwas administrativas futuro do grupo
         </Typography>
-        <div className={classes.list}>
-        <Typography variant="h6" className={classes.list}><b>O que dizem nossos monitores?</b>
+        <div className={classes.title}>
+        <Typography variant="h6" className={classes.title}><b>O que dizem nossos monitores?</b>
         </Typography>
         <Paper
           square
           onClick={goToNextMonitor}
           style={{
-            height: "90%",
             minHeight: '200px',
-            width: '80%',
+            width: '100%',
             padding: 30,
             display: "flex",
             alignContent:"center",
@@ -198,7 +194,6 @@ export default function Aluno() {
             textAlign:'center',
             background:'linear-gradient(-45deg,  #efd301 10%, #3d57a6  60%)',
             cursor:'pointer',
-            margin:'0 auto',
             marginTop:"20px",
 
 
@@ -212,7 +207,7 @@ export default function Aluno() {
             color:'white'
    
           }}>
-        <Typography variant="overline" ><b>&ldquo;&nbsp;{MonitorTXT[monitor].text}&nbsp;&rdquo;</b></Typography>
+        <Typography variant="overline" style={window && window.innerWidth>700 ? {fontSize:'large'} : {}}><b>&ldquo;&nbsp;{MonitorTXT[monitor].text}&nbsp;&rdquo;</b></Typography>
           </div>
         </Paper>
 
@@ -228,11 +223,9 @@ export default function Aluno() {
               
             </Button>
             </div>
-
-               <List className={classes.second}>
-        <Typography variant="h6" className={classes.list}><b>Responsabilidades dos monitores:</b></Typography>
-
-        <ListItem disablePadding className={classes.listItem}>
+        {window && window.innerWidth>700 ? (<List className={classes.second}>
+          <Typography variant="h6" className={classes.title}><b>Responsabilidades dos monitores:</b></Typography>
+          <ListItem disablePadding className={classes.listItem}>
               <ListItemIcon>
                 <ArrowForward />
               </ListItemIcon>
@@ -254,28 +247,48 @@ export default function Aluno() {
               <ListItemText primary="Inspiração" secondary="Nosso maior objetivo é desenvolver o senso de comunidade e criar uma cultura de ajuda entre estudantes e graduandos
               para elevarmos o nível da educação no Brasil inteiro! Para isso, os monitores têm que servir como uma base de exemplo e inspiração para os alunos."/>
           </ListItem>
-        </List>
+        </List>) : (<List className={classes.second}>
+          <Typography variant="h6" className={classes.title}><b>Responsabilidades dos monitores:</b></Typography>
+          <ListItem disablePadding className={classes.listItem}>
+              <ListItemIcon>
+                <ArrowForward />
+              </ListItemIcon>
+              <ListItemText primary="Gentileza"  />
+          </ListItem>
+          <ListItem disablePadding className={classes.listItem}>
+              <ListItemIcon>
+                <ArrowForward />
+              </ListItemIcon>
+              <ListItemText primary="Qualidade" />
+          </ListItem>
+          <ListItem disablePadding className={classes.listItem}>
+              <ListItemIcon>
+                <ArrowForward />
+              </ListItemIcon>
+              <ListItemText primary="Inspiração" />
+          </ListItem>
+        </List>)}
+
+        
         
 
 
-        <div className={classes.list}>
+        <div className={classes.title}>
 
-        <Typography variant="h6" className={classes.list}><b>Palavras que nos incentivam:</b>
+        <Typography variant="h6" className={classes.title}><b>Palavras que nos incentivam:</b>
         </Typography>
         <Paper
           square
           onClick={goToNextAluno}
           style={{
-            height: "90%",
             minHeight: '200px',
-            width: '80%',
+            width: '100%',
             padding: 30,
             display: "flex",
             alignContent:"center",
             justifyContent: "center" ,
             textAlign:'center',
             background:'linear-gradient(-45deg,  #efd301 10%, #3d57a6  60%)',
-            margin:'0 auto',
             cursor:'pointer',
             marginTop:"20px",
 
@@ -292,7 +305,7 @@ export default function Aluno() {
             color:'white'
 
           }}>
-        <Typography variant="overline" ><b>&ldquo;&nbsp;{AlunosTXT[index].text}&nbsp;&rdquo;</b></Typography>
+        <Typography variant="overline" style={window && window.innerWidth>700 ? {fontSize:'large'} : {}}><b>&ldquo;&nbsp;{AlunosTXT[index].text}&nbsp;&rdquo;</b></Typography>
           </div>
         </Paper>
 
@@ -321,7 +334,7 @@ export default function Aluno() {
 
         <></>
         
-      <div className={classes.list} >
+      <div className={classes.title} >
   
       </div>
       

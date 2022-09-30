@@ -17,7 +17,16 @@ const useStyles = makeStyles((theme) =>
       textAlign:'left'
 
     },
-    list: {
+    card: {
+      paddingTop: "100px",
+      alignItems: "center",
+      alignContent: "center",
+      textAlign: 'left',
+      width: '90vw',
+      
+
+    },
+    title: {
       paddingTop: "20px",
       paddingBottom:"20px",
       paddingLeft:'20px',
@@ -26,7 +35,7 @@ const useStyles = makeStyles((theme) =>
 
 
     }, 
-    list1: {
+    titleOut: {
       paddingTop: "20px",
       paddingBottom:"20px",
       paddingLeft:'40px',
@@ -59,23 +68,11 @@ const useStyles = makeStyles((theme) =>
 
 
     },
-    card: {
-      paddingTop: "100px",
-      alignItems: "center",
-      alignContent: "center",
-      textAlign: 'left',
-      width: '90vw',
-      
-
-    },
-    hr:{
-      marginTop:"20px",
-    }, 
-    
     second:{
       marginTop:'10px',
-      padding: '10px',
-      paddingLeft:'20px',
+      paddingTop: '20px',
+      paddingBottom: '20px',
+      marginLeft:'20px',
       backgroundColor: "#f0f0f0",
 
     }
@@ -130,102 +127,122 @@ export default function Aluno() {
   return (
     <div className={classes.root}>
       <div className={classes.card}>
-        <Typography variant="h6" className={classes.list1}><b>Bem vindo, futuro Aluno!</b></Typography>
-        <Typography variant="body1" className={classes.list1}>Ao se tornar aluno adote, você entrará em um grupo no whatsapp com 
+        <Typography variant="h6" className={classes.titleOut}><b>Bem vindo, futuro Aluno!</b></Typography>
+        <Typography variant="body1" className={classes.titleOut}>Ao se tornar aluno adote, você entrará em um grupo no whatsapp com 
         diversos alunos e alguns monitores. Nós funcionamos como um grupo de dúvidas, não damos aula ou cobramos
         presença, não temos provas e funcionamos gratuitamente. No grupo você pode tirar todo tipo de dúvida que quiser, desde vivência na 
         universidade até métodos de estudo, <b>mas focamos em tirar suas dúvidas de exatas para os vestibulares.</b>
         &nbsp; Você pode enviar as suas dúvidas a hora que quiser no grupo e, assim que um
         monitor estiver disponível ele irá te atender! 
         </Typography>
-        <div className={classes.list}>
-        <Typography variant="h6" className={classes.list}><b>O que dizem nossos alunos?</b>
-        </Typography>
-        <Paper
-          square
-          onClick={goToNextPicture}
-          style={{
-            height: "90%",
-            minHeight: '200px',
-            width: '80%',
-            padding: 30,
-            display: "flex",
-            alignContent:"center",
-            justifyContent: "center" ,
-            textAlign:'center',
-            background: 'linear-gradient(45deg, #efd301  10%,  #3d57a6 60%)',
-            margin:'0 auto',
-            marginTop:"20px",
-            cursor:'pointer'
+        <div className={classes.title}>
+          <Typography variant="h6" className={classes.title}><b>O que dizem nossos alunos?</b>
+          </Typography>
+          <Paper
+            square
+            onClick={goToNextPicture}
+            style={{
+              minHeight: '200px',
+              width: '100%',
+              padding: 30,
+              display: "flex",
+              alignContent:"center",
+              justifyContent: "center" ,
+              textAlign:'center',
+              background: 'linear-gradient(45deg, #efd301  10%,  #3d57a6 60%)',
+              marginTop:"20px",
+              cursor:'pointer'
 
 
-            
-          }}
-        >
-        <div style={{
-            alignContent:"center",
-            justifyContent: "center",
-            margin:"auto",
-            whiteSpace: "pre-wrap"     ,
-            color:'white'
-          }}>
-        <Typography variant="overline" ><b>&ldquo;&nbsp;{MyCollection[index].text}&nbsp;&rdquo;</b></Typography>
-          </div>
-
-        </Paper>
-       
-            <Button
-              size="small"
-              onClick={goToNextPicture}
-            >
-              {index+1}/{CollectionSize}
-              &nbsp;&nbsp;
-              Próximo
-                <KeyboardArrowRight />
               
-            </Button>
+            }}
+          >
+          <div style={{
+              alignContent:"center",
+              justifyContent: "center",
+              margin:"auto",
+              whiteSpace: "pre-wrap"     ,
+              color:'white'
+            }}>
+          <Typography style={window && window.innerWidth>700 ? {fontSize:'large'} : {}} variant="overline" ><b>&ldquo;&nbsp;{MyCollection[index].text}&nbsp;&rdquo;</b></Typography>
             </div>
 
-        <List className={classes.second}>
-        <Typography variant="h6" className={classes.list}><b>Como aluno, você também ganha algumas responsabilidades:</b></Typography>
-
-        <ListItem disablePadding className={classes.listItem}>
-              <ListItemIcon>
-                <ArrowForward />
-              </ListItemIcon>
-              <ListItemText primary="Mande suas dúvidas sem medo" secondary="Aqui seu progresso depende de você, quão mais 
-              ativo você estiver nos estudos, maiores suaas chances de passar" />
-          </ListItem>
-          <ListItem disablePadding className={classes.listItem}>
-              <ListItemIcon>
-                <ArrowForward />
-              </ListItemIcon>
-              <ListItemText primary="Ajude outros alunos" secondary="Atualmente estamos em expansão e não temos monitores para sempre
-              responder na hora, se souber responder a dúvida de outro aluno, tente explicar! Acredite, ensinar é uma das melhores
-              formas de aprender"/>
-          </ListItem>
-          <ListItem disablePadding className={classes.listItem}>
-              <ListItemIcon>
-                <ArrowForward />
-              </ListItemIcon>
-              <ListItemText primary="Compartilhe o conhecimento" secondary="Passou em uma Universidade? Retribua ajudando outros! 
-              Seja como monitor adote ou como você preferir, vamos espalhar o acesso à educação no nosso país!!!"/>
-          </ListItem>
-        </List>
+          </Paper>
         
-        <Typography variant="h6" className={classes.list1}><b>Aprovações</b>
-        </Typography>
+              <Button
+                size="small"
+                onClick={goToNextPicture}
+              >
+                {index+1}/{CollectionSize}
+                &nbsp;&nbsp;
+                Próximo
+                  <KeyboardArrowRight />
+                
+              </Button>
+          </div>
+          {window && window.innerWidth>700 ? (<List className={classes.second}>
+          <Typography variant="h6" className={classes.title}><b>Como aluno, você também ganha algumas responsabilidades:</b></Typography>
 
-        <Button color="primary"  size="medium" onClick={() => setAddAlunoModal(true)} className={classes.button}>
-        Quero ser aluno!
-        </Button>
+          <ListItem disablePadding className={classes.listItem}>
+                <ListItemIcon>
+                  <ArrowForward />
+                </ListItemIcon>
+                <ListItemText primary="Mande suas dúvidas sem medo" secondary="Aqui seu progresso depende de você, quão mais 
+                ativo você estiver nos estudos, maiores suaas chances de passar" />
+            </ListItem>
+            <ListItem disablePadding className={classes.listItem}>
+                <ListItemIcon>
+                  <ArrowForward />
+                </ListItemIcon>
+                <ListItemText primary="Ajude outros alunos" secondary="Atualmente estamos em expansão e não temos monitores para sempre
+                responder na hora, se souber responder a dúvida de outro aluno, tente explicar! Acredite, ensinar é uma das melhores
+                formas de aprender"/>
+            </ListItem>
+            <ListItem disablePadding className={classes.listItem}>
+                <ListItemIcon>
+                  <ArrowForward />
+                </ListItemIcon>
+                <ListItemText primary="Compartilhe o conhecimento" secondary="Passou em uma Universidade? Retribua ajudando outros! 
+                Seja como monitor adote ou como você preferir, vamos espalhar o acesso à educação no nosso país!!!"/>
+            </ListItem>
+          </List>
+          ) : (<List className={classes.second}>
+            <Typography variant="h6" className={classes.title}><b>Como aluno, você também ganha algumas responsabilidades:</b></Typography>
+  
+            <ListItem disablePadding className={classes.listItem}>
+                  <ListItemIcon>
+                    <ArrowForward />
+                  </ListItemIcon>
+                  <ListItemText primary="Mande suas dúvidas sem medo" />
+              </ListItem>
+              <ListItem disablePadding className={classes.listItem}>
+                  <ListItemIcon>
+                    <ArrowForward />
+                  </ListItemIcon>
+                  <ListItemText primary="Ajude outros alunos" />
+              </ListItem>
+              <ListItem disablePadding className={classes.listItem}>
+                  <ListItemIcon>
+                    <ArrowForward />
+                  </ListItemIcon>
+                  <ListItemText primary="Compartilhe o conhecimento"/>
+              </ListItem>
+            </List>
+            )}
+          
+          <Typography variant="h6" className={classes.titleOut}><b>Aprovações</b>
+          </Typography>
+
+          <Button color="primary"  size="medium" onClick={() => setAddAlunoModal(true)} className={classes.button}>
+          Quero ser aluno!
+          </Button>
 
         </div>
 
 
         <></>
         
-      <div className={classes.list} >
+      <div className={classes.title} >
   
       </div>
       

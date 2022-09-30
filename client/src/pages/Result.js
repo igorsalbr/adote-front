@@ -24,14 +24,22 @@ import {
         flexDirection:'row',
         alignContent: 'center',
         marginTop: '20px'
-      },root:{
-        padding:'150px',
+      },
+      separatorcel:{
+        display:'flex',
+        flexDirection:'column',
+        alignContent: 'center',
+        marginTop: '20px'
+      },
+      root:{
+        padding:'20%',
+        paddingTop:'200px'
       },
       title: {
-        alignSelf: 'center',
-        textAlign: 'center',
+        alignSelf: 'left',
+        textAlign: 'left',
         borderBottom:"2px solid blue",
-        minWidth: '600px'
+        minWidth: '60%'
 
       },
       separator2:{
@@ -105,7 +113,7 @@ import {
     return (
       <div className={classes.root}>
         <Typography variant="h5" className={classes.title}> RESULTADOS </Typography>
-        <div className={classes.separator}>
+        <div className={window && window.innerWidth>700 ? classes.separator : classes.separatorcel}>
 
 
           
