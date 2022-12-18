@@ -178,8 +178,8 @@ export default function AppNavbar() {
 
     </Toolbar>
     
-    <Link className={yellow === 'aluno' ? classes.yellowlink1 : classes.link1} onClick={()=> setYellow('aluno')} to='/quero-ser-aluno'><Typography variant="button">Sobre ser aluno Adote</Typography></Link>
-    <Link className={yellow === 'monitor' ? classes.yellowlink2 : classes.link2} onClick={()=> setYellow('monitor')}  to='/quero-ser-monitor'><Typography variant="button">Sobre ser monitor Adote</Typography></Link>
+    <Link className={yellow === 'aluno' ? classes.yellowlink1 : classes.link1} onClick={()=> setYellow('aluno')} to='/quero-ser-aluno'><Typography variant="button">Seja Aluno</Typography></Link>
+    <Link className={yellow === 'monitor' ? classes.yellowlink2 : classes.link2} onClick={()=> setYellow('monitor')}  to='/quero-ser-monitor'><Typography variant="button">Seja Monitor</Typography></Link>
     </div>
   </AppBar>) } 
   else {

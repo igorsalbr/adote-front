@@ -34,17 +34,9 @@ import {
     })
   );
   
-  export default function ShowResult({ todosList, delFunc,  patchFunc, title, update, setUpdate}) {
+  export default function ShowResult({ todosList, title}) {
     let classes = useStyles();
-    let dispatch = useDispatch();
-    function completeTask(id, info){
-      setUpdate(!update)     
-      dispatch(patchFunc(id, info)) 
-    }
-    function delTask(id){
-      setUpdate(!update)     
-      dispatch(delFunc(id)) 
-    }
+  
     
     return (
       <List className={classes.root}>
@@ -54,11 +46,10 @@ import {
       )}
         {todosList.map((item) => (
           <ListItem key={item.id} className={classes.item}>
-            <ListItemText primary={item.name} className={ item.info ?  classes.todoText : ''} />
-            <ListItemText primary={item.numero} className={ item.info ?  classes.todoText : ''} />
-            <ListItemText primary={item.exp ? item.exp : item.obj} className={ item.info ?  classes.todoText : ''} />
-            <Checkbox checked={item.info} onChange={()=> completeTask(item.id, !item.info)}></Checkbox>
-            <Button onClick={()=> delTask(item.id)}>Deletar</Button>
+            <ListItemText primary={item.nome} className={ ''} />
+            <ListItemText primary={item.numero} className={ ''} />
+            <ListItemText primary={item.experiencia ? item.experiencia : item.objetivo} className={ item ?  classes.todoText : ''} />
+        
           </ListItem>
         ))}
       </List>

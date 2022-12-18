@@ -8,11 +8,11 @@ import {
     makeStyles,
     TextField,
   } from "@material-ui/core";
-  import { postAluno } from "../store/actions";
   
-  
+  import {collection, addDoc} from 'firebase/firestore'
+  import {db} from '../firebase-config'
+
   import { useState } from "react";
-  import { useDispatch } from "react-redux";
   
   const useStyles = makeStyles((theme) =>
     createStyles({
@@ -36,7 +36,6 @@ import {
   
   export default function AddAlunoModal({ onClose }) {
     let classes = useStyles();
-    let dispatch = useDispatch();
     let [name, setName]= useState('')
     let [numero, setNumero]= useState('')
     let [obj, setObj]= useState('')
@@ -46,9 +45,16 @@ import {
       dispatch(postAluno(name, numero, obj))
       onClose();
     } */
+
+    const alunoCollection = collection(db, "aluno")
+
+    const addAluno = async ()=> {
+      await addDoc(alunoCollection, {nome: name, numero: numero, objetivo: obj})
+    } 
+
     return (
       <Dialog maxWidth="md" fullWidth open onClose={onClose}>
-        <form onSubmit={()=>console.log()}>
+        <form onSubmit={addAluno}>
           <DialogTitle className={classes.formTitle}>Venha ser nosso Aluno &nbsp;	&#10084;</DialogTitle>
           <DialogContent className={classes.formBody}>
           <TextField

@@ -9,7 +9,10 @@ import {
   
   import {  useEffect, useState } from "react";
   import { useDispatch, useSelector } from "react-redux";
-  
+
+  import {collection, getDocs} from 'firebase/firestore'
+  import {db} from '../firebase-config'
+
   const useStyles = makeStyles((theme) =>
     createStyles({
       auth:{
@@ -23,7 +26,8 @@ import {
         display:'flex',
         flexDirection:'row',
         alignContent: 'center',
-        marginTop: '20px'
+        marginTop: '20px',
+        whiteSpace: 'nowrap'
       },
       separatorcel:{
         display:'flex',
@@ -32,7 +36,7 @@ import {
         marginTop: '20px'
       },
       root:{
-        padding:'20%',
+        padding:'20px',
         paddingTop:'200px'
       },
       title: {
@@ -57,34 +61,35 @@ import {
   
   export default function Result() {
     let classes = useStyles();
-    let dispatch = useDispatch();
-    let member = useSelector((state) => state);
+
     let [mtr, setMtr] = useState([])
     let [str, setStr] = useState([])
     let [updateM, setUpdateM] = useState(false)
     let [updateA, setUpdateA] = useState(false)
     let [authorize, setAuthorize] = useState(false)
+    const monitorCollection = collection(db, "monitor")
+    const alunoCollection = collection(db, "aluno")
 
- 
   useEffect(() => {
-    dispatch(getMonitor());  
-  }, [dispatch, updateM ]);
+    const getMonitor = async ()=>   {
+      const monitores = await getDocs(monitorCollection)
+      setMtr(monitores.docs.map((doc)=>({...doc.data(), id:doc.id})))
+
+    }
+    getMonitor()
+  }, [  updateM ]);
   
-  useEffect(() => {
-    if (member.member.monitor !== undefined && member.member.monitor !== null){ setMtr(Object.values(member.member.monitor))}
-
-  }, [member.member.monitor ]);
 
 
   useEffect(() => {
-
-    dispatch(getAluno());  
-  }, [dispatch, updateA]);
+    const getAluno = async ()=>   {
+      const alunos = await getDocs(alunoCollection)
+      setStr(alunos.docs.map((doc)=>({...doc.data(), id:doc.id})))
+    }
+    getAluno()
+  }, [  updateA]);
   
-  useEffect(() => {
-    if (member.member.aluno !== undefined && member.member.aluno !== null){ setStr(Object.values(member.member.aluno))}
-
-  }, [member.member.aluno]);
+  
   function checkauth(){
     let a = document.querySelectorAll('input')
     if (a[0].value === 'adote' && a[1].value === process.env.REACT_APP_PASS){
@@ -117,8 +122,8 @@ import {
 
 
           
-        <ShowResult  todosList={mtr} delFunc={delMonitor} patchFunc={patchMonitor} title="Monitor" update={updateM} setUpdate={setUpdateM}></ShowResult>
-        <ShowResult todosList={str} delFunc={delAluno} patchFunc={patchAluno} title="Aluno" update={updateA} setUpdate={setUpdateA}></ShowResult>
+        <ShowResult  todosList={mtr} title="Monitor" update={updateM} setUpdate={setUpdateM}></ShowResult>
+        <ShowResult todosList={str} title="Aluno" update={updateA} setUpdate={setUpdateA}></ShowResult>
         </div>
 
       </div>

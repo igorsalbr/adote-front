@@ -8,11 +8,12 @@ import {
   makeStyles,
   TextField,
 } from "@material-ui/core";
-import { postMonitor } from "../store/actions";
 
 
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+
+import {collection, addDoc} from 'firebase/firestore'
+import {db} from '../firebase-config'
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -37,19 +38,24 @@ const useStyles = makeStyles((theme) =>
 
 export default function AddMonitorModal({ onClose }) {
   let classes = useStyles();
-  let dispatch = useDispatch();
   let [name, setName]= useState('')
   let [numero, setNumero]= useState('')
   let [exp, setExp]= useState('')
-
+/**
   function submitNewItem(e) {
     e.preventDefault();
     dispatch(postMonitor(name, numero, exp))
     onClose();
-  }
+  } */
+
+  const monitorCollection = collection(db, "monitor")
+
+  const addMonitor = async ()=> {
+    await addDoc(monitorCollection, {nome: name, numero: numero, experiencia: exp})
+  } 
   return (
     <Dialog maxWidth="md" fullWidth open onClose={onClose}>
-      <form onSubmit={submitNewItem}>
+      <form onSubmit={addMonitor}>
         <DialogTitle className={classes.formTitle}>Venha ser Monitor Adote!! &nbsp; &#128526;</DialogTitle>
         <DialogContent className={classes.formBody}>
         <TextField
