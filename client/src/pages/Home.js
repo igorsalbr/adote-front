@@ -100,7 +100,7 @@ export default function Home() {
 
         <Typography variant="h6" className={classes.titleOut}><b>Parcerias</b></Typography>
 
-        <Typography variant="body1" className={classes.titleOut}>Resist enem</Typography>
+        <Typography variant="body1" className={classes.titleOut}>Resiste enem</Typography>
        </div>
 
 
