@@ -269,10 +269,6 @@ export default function Aluno() {
           </ListItem>
         </List>)}
 
-        
-        
-
-
         <div className={classes.title}>
 
         <Typography variant="h6" className={classes.title}><b>Palavras que nos incentivam:</b>

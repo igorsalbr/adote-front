@@ -40,15 +40,15 @@ import {
     let [name, setName]= useState('')
     let [numero, setNumero]= useState('')
     let [obj, setObj]= useState('')
-  
+  /**
     function submitNewItem(e) {
       e.preventDefault();
       dispatch(postAluno(name, numero, obj))
       onClose();
-    }
+    } */
     return (
       <Dialog maxWidth="md" fullWidth open onClose={onClose}>
-        <form onSubmit={submitNewItem}>
+        <form onSubmit={()=>console.log()}>
           <DialogTitle className={classes.formTitle}>Venha ser nosso Aluno &nbsp;	&#10084;</DialogTitle>
           <DialogContent className={classes.formBody}>
           <TextField
